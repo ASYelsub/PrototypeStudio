@@ -13,7 +13,7 @@ public  class ZoombiniSpawner : MonoBehaviour
 
    public List<Zoombini> zoombinis;
 
-
+    public GameObject zoombiniSpawnSpot;
    [Header("Zoombini Prefab Components")]
    public GameObject bodyPrefab;
     public GameObject[] hairPrefabs = new GameObject[(int)HairTypes.length];
@@ -22,7 +22,7 @@ public  class ZoombiniSpawner : MonoBehaviour
     public GameObject[] feetPrefabs = new GameObject[(int)FeetTypes.length];
 
 
-    public void Start()
+    public void Init()
     {
        
         zoombinis = CreateZoombinis();
@@ -32,7 +32,12 @@ public  class ZoombiniSpawner : MonoBehaviour
     {
         for (int i = 0; i < zoombiniCount; i++)
         {
-           // Zoombini newZoombini = 
+            EyeTypes eyeType = (EyeTypes)(Random.Range(0, (int)EyeTypes.length));
+            HairTypes hairType = (HairTypes)(Random.Range(0,(int)HairTypes.length));
+            NoseTypes noseType = (NoseTypes)(Random.Range(0,(int)NoseTypes.length));
+            FeetTypes feetType = (FeetTypes)(Random.Range(0,(int)FeetTypes.length));
+            Zoombini newZoombini = new Zoombini(hairType,eyeType,noseType,feetType,bodyPrefab);
+            zoombinis.Add(newZoombini);
         }
         return null;
     }

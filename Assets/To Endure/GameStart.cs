@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameStart : MonoBehaviour
 {
     
-    void Start()
+    void Awake()
     {
         ZoombiniServices.Init();
     }

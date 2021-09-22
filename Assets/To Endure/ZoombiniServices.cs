@@ -8,5 +8,6 @@ public static class ZoombiniServices
    public static void Init()
     {
         zoombiniSpawner = GameObject.FindObjectOfType<ZoombiniSpawner>();
+        zoombiniSpawner.Init();
     }
 }
