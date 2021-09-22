@@ -77,7 +77,7 @@ Material:
     - _DstBlend: 0
     - _FlatRimEdgeSmoothness: 0
     - _FlatRimLightAlign: 0
-    - _FlatRimSize: 0.36
+    - _FlatRimSize: 0.243
     - _FlatSpecularEdgeSmoothness: 0
     - _FlatSpecularSize: 0.1
     - _Flatness: 1

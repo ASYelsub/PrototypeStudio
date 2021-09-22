@@ -32,32 +32,25 @@ public class Zoombini : MonoBehaviour
 
     Vector3 bodyPos;
    
-
-    public Zoombini(ZoombiniSpawner.HairTypes newHair, ZoombiniSpawner.EyeTypes newEyes, ZoombiniSpawner.NoseTypes newNose, ZoombiniSpawner.FeetTypes newFeet, GameObject bodyPrefab)
+    int numberID;
+    public Zoombini(ZoombiniSpawner.HairTypes newHair, ZoombiniSpawner.EyeTypes newEyes, ZoombiniSpawner.NoseTypes newNose, ZoombiniSpawner.FeetTypes newFeet, GameObject bodyPrefab, int count)
     {
         this.hair = newHair;
         this.eyes = newEyes;
         this.nose = newNose;
         this.feet = newFeet;
-
+        numberID = count;
         bodyObj = Instantiate(bodyPrefab,ZoombiniServices.zoombiniSpawner.zoombiniSpawnSpot.GetComponent<Transform>());
 
-
-
         hairObj = Instantiate(ZoombiniServices.zoombiniSpawner.hairPrefabs[(int)hair], bodyObj.GetComponent<Transform>());
-       // hairObj.transform.parent = bodyPrefab.transform;
         eyesObj = Instantiate(ZoombiniServices.zoombiniSpawner.eyePrefabs[(int)eyes], bodyObj.GetComponent<Transform>());
-       // eyesObj.transform.parent = bodyPrefab.transform;
         noseObj = Instantiate(ZoombiniServices.zoombiniSpawner.nosePrefabs[(int)nose], bodyObj.GetComponent<Transform>());
-       // noseObj.transform.parent = bodyPrefab.transform;
         feetObj = Instantiate(ZoombiniServices.zoombiniSpawner.feetPrefabs[(int)feet], bodyObj.GetComponent<Transform>());
-        //feetObj.transform.parent = bodyPrefab.transform;
 
-
-//        bodyPos = new Vector3(gameObject.GetComponent<Transform>().localPosition.x,
-    //        gameObject.GetComponent<Transform>().localPosition.y,
-   //         gameObject.GetComponent<Transform>().localPosition.z);
         rotateVec = new Vector3(0, 1, 0);
+
+        
+        bodyObj.GetComponent<Transform>().localPosition = new Vector3(count%4, 0,count/4);
     }
 
     

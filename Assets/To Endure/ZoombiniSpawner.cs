@@ -36,7 +36,7 @@ public  class ZoombiniSpawner : MonoBehaviour
             HairTypes hairType = (HairTypes)(Random.Range(0,(int)HairTypes.length));
             NoseTypes noseType = (NoseTypes)(Random.Range(0,(int)NoseTypes.length));
             FeetTypes feetType = (FeetTypes)(Random.Range(0,(int)FeetTypes.length));
-            Zoombini newZoombini = new Zoombini(hairType,eyeType,noseType,feetType,bodyPrefab);
+            Zoombini newZoombini = new Zoombini(hairType,eyeType,noseType,feetType,bodyPrefab,i);
             zoombinis.Add(newZoombini);
         }
         return null;
