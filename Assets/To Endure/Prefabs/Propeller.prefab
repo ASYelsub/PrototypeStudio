@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 7061894463812165327}
   - component: {fileID: 7061894463812165324}
   - component: {fileID: 7061894463812165325}
-  - component: {fileID: 7061894463812165326}
   m_Layer: 0
   m_Name: PropellerMiddle
   m_TagString: Untagged
@@ -115,20 +114,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7061894463812165326
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061894463812165320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &7061894463827765644
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +125,6 @@ GameObject:
   - component: {fileID: 7061894463827765747}
   - component: {fileID: 7061894463827765744}
   - component: {fileID: 7061894463827765745}
-  - component: {fileID: 7061894463827765746}
   m_Layer: 0
   m_Name: EWPropel
   m_TagString: Untagged
@@ -211,19 +195,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7061894463827765746
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061894463827765644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7061894464065544595
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +206,6 @@ GameObject:
   - component: {fileID: 7061894464065544594}
   - component: {fileID: 7061894464065544599}
   - component: {fileID: 7061894464065544592}
-  - component: {fileID: 7061894464065544593}
   m_Layer: 0
   m_Name: NSPropel
   m_TagString: Untagged
@@ -306,16 +276,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7061894464065544593
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061894464065544595}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

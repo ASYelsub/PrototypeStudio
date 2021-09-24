@@ -4,6 +4,8 @@ using UnityEngine;
 
 public  class ZoombiniSpawner : MonoBehaviour
 {
+    public Material zoomBodSelectMat;
+    public Material zoomBodDeselectMat;
    public enum HairTypes { spikey, ponytail, tuft, flat, cap, length}
    public enum EyeTypes { normal, droopy, sunglass, glasses, mono, length}
    public enum NoseTypes { yellow, pink, red, green, blue, length }
@@ -35,8 +37,10 @@ public  class ZoombiniSpawner : MonoBehaviour
             HairTypes hairType = (HairTypes)(Random.Range(0,(int)HairTypes.length));
             NoseTypes noseType = (NoseTypes)(Random.Range(0,(int)NoseTypes.length));
             FeetTypes feetType = (FeetTypes)(Random.Range(0,(int)FeetTypes.length));
-            Zoombini newZoombini = new Zoombini(hairType,eyeType,noseType,feetType,bodyPrefab,i);
-            zoombinis.Add(newZoombini);
+            GameObject body = Instantiate(bodyPrefab, ZoombiniServices.zoombiniSpawner.zoombiniSpawnSpot.GetComponent<Transform>());
+            body.AddComponent<Zoombini>();
+            body.GetComponent<Zoombini>().SetZoombini(body, hairType, eyeType, noseType, feetType, i);
+            zoombinis.Add(body.GetComponent<Zoombini>());
         }
         return null;
     }

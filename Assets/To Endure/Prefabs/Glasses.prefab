@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1412850879021893489}
   - component: {fileID: 1412850879021893500}
   - component: {fileID: 1412850879021893491}
-  - component: {fileID: 1412850879021893490}
   m_Layer: 0
   m_Name: OneEye (1)
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1412850879021893490
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879021893488}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1412850879074409276
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +93,6 @@ GameObject:
   - component: {fileID: 1412850879074409277}
   - component: {fileID: 1412850879074409272}
   - component: {fileID: 1412850879074409279}
-  - component: {fileID: 1412850879074409278}
   m_Layer: 0
   m_Name: OneEye (3)
   m_TagString: Untagged
@@ -179,20 +163,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1412850879074409278
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879074409276}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1412850879163175314
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +174,6 @@ GameObject:
   - component: {fileID: 1412850879163175315}
   - component: {fileID: 1412850879163175326}
   - component: {fileID: 1412850879163175325}
-  - component: {fileID: 1412850879163175324}
   m_Layer: 0
   m_Name: r (1)
   m_TagString: Untagged
@@ -275,19 +244,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1412850879163175324
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879163175314}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1412850879623808485
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +255,6 @@ GameObject:
   - component: {fileID: 1412850879623808486}
   - component: {fileID: 1412850879623808481}
   - component: {fileID: 1412850879623808480}
-  - component: {fileID: 1412850879623808487}
   m_Layer: 0
   m_Name: OneEye (2)
   m_TagString: Untagged
@@ -370,20 +325,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1412850879623808487
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879623808485}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1412850879661383685
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +336,6 @@ GameObject:
   - component: {fileID: 1412850879661383686}
   - component: {fileID: 1412850879661383681}
   - component: {fileID: 1412850879661383680}
-  - component: {fileID: 1412850879661383687}
   m_Layer: 0
   m_Name: OneEye
   m_TagString: Untagged
@@ -467,20 +407,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1412850879661383687
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879661383685}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1412850879961402649
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +418,6 @@ GameObject:
   - component: {fileID: 1412850879961402650}
   - component: {fileID: 1412850879961403109}
   - component: {fileID: 1412850879961403108}
-  - component: {fileID: 1412850879961402651}
   m_Layer: 0
   m_Name: r
   m_TagString: Untagged
@@ -563,19 +488,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1412850879961402651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879961402649}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1412850879988832870
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +499,6 @@ GameObject:
   - component: {fileID: 1412850879988832871}
   - component: {fileID: 1412850879988832866}
   - component: {fileID: 1412850879988832865}
-  - component: {fileID: 1412850879988832864}
   m_Layer: 0
   m_Name: OneIris
   m_TagString: Untagged
@@ -658,20 +569,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1412850879988832864
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850879988832870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1412850880723588208
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +616,6 @@ GameObject:
   - component: {fileID: 1412850880830612696}
   - component: {fileID: 1412850880830612699}
   - component: {fileID: 1412850880830612698}
-  - component: {fileID: 1412850880830612697}
   m_Layer: 0
   m_Name: OneIris
   m_TagString: Untagged
@@ -790,17 +686,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1412850880830612697
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412850880830612703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

@@ -368,7 +368,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a79a77dbed7647139d4c48b95cfa559, type: 2}
+  - {fileID: 2100000, guid: 4ebaffb31ef5e4cffbade796f93ed2ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -873,6 +873,7 @@ GameObject:
   - component: {fileID: 877067806}
   - component: {fileID: 877067808}
   - component: {fileID: 877067809}
+  - component: {fileID: 877067810}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -935,6 +936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9c12e80174d4d8ab136132ee79177b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomBodSelectMat: {fileID: 2100000, guid: 4ebaffb31ef5e4cffbade796f93ed2ab, type: 2}
+  zoomBodDeselectMat: {fileID: 2100000, guid: 7a79a77dbed7647139d4c48b95cfa559, type: 2}
   zoombinis: []
   zoombiniSpawnSpot: {fileID: 433010386}
   bodyPrefab: {fileID: 136968285769522430, guid: 1207e2b7e64aa466b8c4e473015ce9a0, type: 3}
@@ -962,6 +965,19 @@ MonoBehaviour:
   - {fileID: 4973279068992729185, guid: c1ff3df20d7404abb95e4cdafe7bd9f4, type: 3}
   - {fileID: 5684449605573134763, guid: ca168647235804b5ea0f50b4b00345a3, type: 3}
   - {fileID: 2347367504727498580, guid: 2f14245c6c4334b6dae77ad13398a1ef, type: 3}
+--- !u!114 &877067810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877067805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4219006a9495545b991d09ebf6d9ea27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeZoombini: {fileID: 0}
 --- !u!4 &1112084629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1412850880723588209, guid: c355ee1a5238b438eaa4ba4698405de7, type: 3}
