@@ -5,7 +5,7 @@ using UnityEngine;
 public  class ZoombiniSpawner : MonoBehaviour
 {
    public enum HairTypes { spikey, ponytail, tuft, flat, cap, length}
-   public enum EyeTypes { dots, droopy, sunglass, glasses, mono, length}
+   public enum EyeTypes { normal, droopy, sunglass, glasses, mono, length}
    public enum NoseTypes { yellow, pink, red, green, blue, length }
    public enum FeetTypes { wheels, propeller, spring, sneakers, skates, length}
 
@@ -24,7 +24,6 @@ public  class ZoombiniSpawner : MonoBehaviour
 
     public void Init()
     {
-       
         zoombinis = CreateZoombinis();
     }
 
