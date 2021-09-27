@@ -12,10 +12,21 @@ public class TileBehavior : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         seeThrough.SetActive(false);
+        if (other.gameObject.CompareTag("Zoombini"))
+        {
+            other.gameObject.GetComponent<Zoombini>().overTile = false;
+            other.gameObject.GetComponent<Zoombini>().currentTileOver = null;
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
         seeThrough.SetActive(true);
         Debug.Log("Hello");
+        if (other.gameObject.CompareTag("Zoombini"))
+        {
+            other.gameObject.GetComponent<Zoombini>().overTile = true;
+            other.gameObject.GetComponent<Zoombini>().currentTileOver = gameObject.transform;
+        }
     }
 }

@@ -55,6 +55,8 @@ public class Zoombini : MonoBehaviour
         initialPos = gameObject.transform.position;
     }
 
+    public bool overTile = false;
+    public Transform currentTileOver = null;
     public bool isUp = false;
     public bool isSelected = false;
     public void Select()
@@ -72,7 +74,15 @@ public class Zoombini : MonoBehaviour
     public void PutDown()
     {
         isUp = false;
-        gameObject.GetComponent<Transform>().position = initialPos;
+        if (overTile)
+        {
+            gameObject.GetComponent<Transform>().position = currentTileOver.position + new Vector3(0,.5f,0);
+        }
+        else
+        {
+            gameObject.GetComponent<Transform>().position = initialPos;
+        }
+        
     }
     
     void FixedUpdate()
@@ -83,8 +93,11 @@ public class Zoombini : MonoBehaviour
                // PropellerAnim();
                     break;
         }
-        if(isUp)
-         transform.localPosition = GetMouseAsWorldPoint() + mOffset;
+        if (isUp)
+        {
+            transform.localPosition = GetMouseAsWorldPoint() + mOffset;
+        }
+        
     }
 
     float propellerAnimTimer = 0f;
@@ -100,15 +113,20 @@ public class Zoombini : MonoBehaviour
 
     private Vector3 mOffset;
     private float mZCoord;  
+    private float mYCoord;
     void OnMouseDown(){
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.localPosition).z;
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+      
+
         mOffset = gameObject.transform.localPosition - GetMouseAsWorldPoint();
+  
     }
     private Vector3 GetMouseAsWorldPoint(){
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = mZCoord;
+       
         mousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
-        mousePoint.y = ZoombiniServices.gridMaker.GetComponent<Transform>().position.y;
+        mousePoint.y = ZoombiniServices.gridMaker.GetComponent<Transform>().localPosition.y;
         return mousePoint;
     }
 
