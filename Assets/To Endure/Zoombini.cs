@@ -55,6 +55,8 @@ public class Zoombini : MonoBehaviour
         initialPos = gameObject.transform.position;
     }
 
+    public bool isUp = false;
+    public bool isSelected = false;
     public void Select()
     {    
         gameObject.GetComponent<MeshRenderer>().material = ZoombiniServices.zoombiniSpawner.zoomBodSelectMat;
@@ -62,15 +64,11 @@ public class Zoombini : MonoBehaviour
     public void Deselect()
     {
         gameObject.GetComponent<MeshRenderer>().material = ZoombiniServices.zoombiniSpawner.zoomBodDeselectMat;
-    }
-    public bool isUp = false;
-    public bool isSelected = false;
+    }    
     public void PickUp()
     {
         isUp = true;
     }
-
-
     public void PutDown()
     {
         isUp = false;
@@ -86,7 +84,7 @@ public class Zoombini : MonoBehaviour
                     break;
         }
         if(isUp)
-         transform.position = GetMouseAsWorldPoint() + mOffset;
+         transform.localPosition = GetMouseAsWorldPoint() + mOffset;
     }
 
     float propellerAnimTimer = 0f;
@@ -101,14 +99,18 @@ public class Zoombini : MonoBehaviour
 
 
     private Vector3 mOffset;
-    private float mZCoord;
+    private float mZCoord;  
     void OnMouseDown(){
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.localPosition).z;
+        mOffset = gameObject.transform.localPosition - GetMouseAsWorldPoint();
     }
     private Vector3 GetMouseAsWorldPoint(){
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = mZCoord;
-        return Camera.main.ScreenToWorldPoint(mousePoint);
+        mousePoint = Camera.main.ScreenToWorldPoint(mousePoint);
+        mousePoint.y = ZoombiniServices.gridMaker.GetComponent<Transform>().position.y;
+        return mousePoint;
     }
+
+    
 }

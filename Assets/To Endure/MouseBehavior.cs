@@ -8,7 +8,7 @@ public class MouseBehavior : MonoBehaviour
     public GameObject selectedZoombini;
     public GameObject pickedUpZoombini;
     RaycastHit hitInfo = new RaycastHit();
-
+    public Camera mainCam;
     
 
     
@@ -29,14 +29,17 @@ public class MouseBehavior : MonoBehaviour
                 if(pickedUpZoombini != null)
                 {
                     DropOldZoombini();
-                  
                 }
                 else
                 {
                     DropOldZoombini();
                     PickUpNewZoombini(hitInfo);
                 }
-              }            
+              }
+            else if(pickedUpZoombini != null)
+            {
+                DropOldZoombini();
+            }
         }
     }
    

@@ -10,21 +10,24 @@ public class GridMaker : MonoBehaviour
     public int gridXCount;
     public int gridYCount;
 
+    public Transform plane;
+
     List<GameObject> gridMarkers = new List<GameObject>();
     public float gridSpacer;
     Quaternion cellRot;
-    void Start()
+    public void Init()
     {
-        cellRot.Set(0,0,0,0);
+        cellRot.Set(0, 0, 0, 0);
         for (int i = 0; i < gridXCount; i++)
         {
             for (int j = 0; j < gridYCount; j++)
             {
-              GameObject newMarker = Instantiate(gridMarker,new Vector3(0,0,0),cellRot,gridHolder.GetComponent<Transform>());
-              newMarker.GetComponent<Transform>().localPosition = new Vector3(i * gridSpacer, 0, j * gridSpacer);
-                gridMarkers.Add(newMarker);  
+                GameObject newMarker = Instantiate(gridMarker, new Vector3(0, 0, 0), cellRot, gridHolder.GetComponent<Transform>());
+                newMarker.GetComponent<Transform>().localPosition = new Vector3(i * gridSpacer, 0, j * gridSpacer);
+                gridMarkers.Add(newMarker);
             }
         }
     }
+   
 
 }

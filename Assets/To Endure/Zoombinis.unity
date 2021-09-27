@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 281997881}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -897,6 +897,7 @@ MonoBehaviour:
   gridHolder: {fileID: 448971841}
   gridXCount: 10
   gridYCount: 10
+  plane: {fileID: 281997880}
   gridSpacer: 1
 --- !u!4 &877067807
 Transform:
@@ -977,7 +978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4219006a9495545b991d09ebf6d9ea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeZoombini: {fileID: 0}
+  selectedZoombini: {fileID: 0}
+  pickedUpZoombini: {fileID: 0}
+  mainCam: {fileID: 405170126}
 --- !u!4 &1112084629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1412850880723588209, guid: c355ee1a5238b438eaa4ba4698405de7, type: 3}
