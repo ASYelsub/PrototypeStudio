@@ -4,54 +4,82 @@ using UnityEngine;
 
 public class MouseBehavior : MonoBehaviour
 {
-
-  
-
     [HideInInspector]
-    public GameObject activeZoombini;
+    public GameObject selectedZoombini;
+    public GameObject pickedUpZoombini;
     RaycastHit hitInfo = new RaycastHit();
+
+    
+
+    
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray.origin, ray.direction, out hitInfo))
-            {
-                if (hitInfo.transform.gameObject.CompareTag("Zoombini"))
-                {
-                    if(activeZoombini != null)
-                        activeZoombini.GetComponent<Zoombini>().PutDown();
-                    activeZoombini = hitInfo.transform.gameObject;
-                    activeZoombini.GetComponent<Zoombini>().PickUp();
-                }
-
-
-            }
-
+        if (Input.GetMouseButtonUp(0)) {            
+           LeftMouse();
+        }else{
+            NonMouseCickUpdate();
         }
-        else if(activeZoombini != null && !activeZoombini.GetComponent<Zoombini>().isUp)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray.origin, ray.direction, out hitInfo))
-            {
-                if (hitInfo.transform.gameObject.CompareTag("Zoombini"))
-                {
-                    if (activeZoombini != null)
-                        activeZoombini.GetComponent<Zoombini>().Deselect();
-                    activeZoombini = hitInfo.transform.gameObject;
-                    activeZoombini.GetComponent<Zoombini>().Select();
+    }
 
+    void LeftMouse(){
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray.origin, ray.direction, out hitInfo))
+        {
+             if(hitInfo.transform.gameObject.CompareTag("Zoombini")){
+                if(pickedUpZoombini != null)
+                {
+                    DropOldZoombini();
+                  
                 }
                 else
                 {
-                    if(activeZoombini != null)
-                    {
-                        activeZoombini.GetComponent<Zoombini>().Deselect();
-                        activeZoombini = null;
-                    }
+                    DropOldZoombini();
+                    PickUpNewZoombini(hitInfo);
                 }
-
-
-            }
+              }            
         }
     }
+   
+    void NonMouseCickUpdate()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray.origin, ray.direction, out hitInfo))
+        {
+            if (hitInfo.transform.gameObject.CompareTag("Zoombini"))
+            {
+                DeselctOldZoombini();
+                SelectNewZoombini(hitInfo);
+            }
+            else { DeselctOldZoombini();}
+        }
+    }
+    
+
+
+    void DropOldZoombini()
+    {
+        if(pickedUpZoombini != null)
+            pickedUpZoombini.GetComponent<Zoombini>().PutDown();
+        pickedUpZoombini = null;
+        DeselctOldZoombini();
+    }
+    void PickUpNewZoombini(RaycastHit hit)
+    {
+        pickedUpZoombini = hit.transform.gameObject;
+        pickedUpZoombini.GetComponent<Zoombini>().PickUp();
+    }
+
+    void SelectNewZoombini(RaycastHit hit)
+    {
+        selectedZoombini = hit.transform.gameObject;
+        selectedZoombini.GetComponent<Zoombini>().Select();
+    }
+
+    void DeselctOldZoombini()
+    {
+        if(selectedZoombini!=null)
+            selectedZoombini.GetComponent<Zoombini>().Deselect();
+        selectedZoombini = null;
+    }
+
 }

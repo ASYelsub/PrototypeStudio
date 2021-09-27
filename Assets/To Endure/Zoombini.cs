@@ -34,6 +34,7 @@ public class Zoombini : MonoBehaviour
    
     int numberID;
     Zoombini thisZoom;
+    Vector3 initialPos;
     public void SetZoombini(GameObject bodyPrefab, ZoombiniSpawner.HairTypes newHair, ZoombiniSpawner.EyeTypes newEyes, ZoombiniSpawner.NoseTypes newNose, ZoombiniSpawner.FeetTypes newFeet, int count)
     {
         this.hair = newHair;
@@ -51,10 +52,11 @@ public class Zoombini : MonoBehaviour
 
         
         bodyObj.GetComponent<Transform>().localPosition = new Vector3(count%4, 0,count/4);
+        initialPos = gameObject.transform.position;
     }
 
     public void Select()
-    {
+    {    
         gameObject.GetComponent<MeshRenderer>().material = ZoombiniServices.zoombiniSpawner.zoomBodSelectMat;
     }
     public void Deselect()
@@ -62,15 +64,17 @@ public class Zoombini : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = ZoombiniServices.zoombiniSpawner.zoomBodDeselectMat;
     }
     public bool isUp = false;
+    public bool isSelected = false;
     public void PickUp()
     {
         isUp = true;
-
     }
+
+
     public void PutDown()
     {
         isUp = false;
-
+        gameObject.GetComponent<Transform>().position = initialPos;
     }
     
     void FixedUpdate()
@@ -81,6 +85,8 @@ public class Zoombini : MonoBehaviour
                // PropellerAnim();
                     break;
         }
+        if(isUp)
+         transform.position = GetMouseAsWorldPoint() + mOffset;
     }
 
     float propellerAnimTimer = 0f;
@@ -90,5 +96,19 @@ public class Zoombini : MonoBehaviour
         bodyObj.GetComponent<Transform>().position = new Vector3(bodyPos.x, bodyPos.y + Mathf.Sin((propellerAnimTimer) * Mathf.PI * frequency) * amplitude, bodyPos.z);
         EWRot.GetComponent<Transform>().Rotate(rotateVec);
         NSRot.GetComponent<Transform>().Rotate(rotateVec);
+    }
+
+
+
+    private Vector3 mOffset;
+    private float mZCoord;
+    void OnMouseDown(){
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+    }
+    private Vector3 GetMouseAsWorldPoint(){
+        Vector3 mousePoint = Input.mousePosition;
+        mousePoint.z = mZCoord;
+        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 }
