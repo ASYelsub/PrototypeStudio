@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-749906929574759068
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  spectralLut:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 1
+  fastMode:
+    overrideState: 0
+    value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +41,7 @@ MonoBehaviour:
   settings:
   - {fileID: 3605088930882224588}
   - {fileID: 1630654802853480680}
+  - {fileID: -749906929574759068}
 --- !u!114 &1630654802853480680
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -61,10 +88,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 26.4
+    value: 17.54
   threshold:
     overrideState: 1
-    value: 0.9
+    value: 0.5
   softKnee:
     overrideState: 1
     value: 0.55
@@ -73,13 +100,13 @@ MonoBehaviour:
     value: 65472
   diffusion:
     overrideState: 1
-    value: 6.01
+    value: 3.92
   anamorphicRatio:
     overrideState: 1
     value: 1
   color:
     overrideState: 1
-    value: {r: 0, g: 0.07855177, b: 1, a: 1}
+    value: {r: 0.5030705, g: 0.53390616, b: 0.8962264, a: 1}
   fastMode:
     overrideState: 0
     value: 0
