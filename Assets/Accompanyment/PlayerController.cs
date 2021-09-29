@@ -43,7 +43,6 @@ public bool canMove = false;
         }
 
     }
-
     
     void Move(Vector2 input)
     {

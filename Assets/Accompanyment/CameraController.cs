@@ -29,8 +29,36 @@ public class CameraController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
+    private bool gameplayCursor = true;
+    public void SwitchCursorLockState()
+    {
+        gameplayCursor = !gameplayCursor;
+        if (gameplayCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+    
     void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            SwitchCursorLockState();
+        }
+
+        if (gameplayCursor)
+        {
+            GameplayCameraUpdate();
+        }
+    }
+
+    public void GameplayCameraUpdate()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; // yaw input
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity; // pitch input
@@ -51,6 +79,7 @@ public class CameraController : MonoBehaviour
 
         if(owningController.canMove)
             playerTransform.Rotate(playerTransform.up * mouseX); 
+
     }
 
     public PlayerController GetOwningController()
