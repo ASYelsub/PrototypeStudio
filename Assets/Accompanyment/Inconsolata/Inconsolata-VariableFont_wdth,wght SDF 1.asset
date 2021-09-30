@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Inconsolata-VariableFont_wdth,wght SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: GLOW_ON
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -54,10 +54,10 @@ Material:
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 1
-    - _GlowOffset: 1
-    - _GlowOuter: 0.71
-    - _GlowPower: 0.69
+    - _GlowInner: 0.05
+    - _GlowOffset: 0
+    - _GlowOuter: 0.05
+    - _GlowPower: 0.75
     - _GradientScale: 6
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -65,11 +65,11 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.27
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.39595515
+    - _ScaleRatioB: 0.6770833
     - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
@@ -94,8 +94,8 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 0.012137837, b: 0.509434, a: 0.5}
+    - _FaceColor: {r: 1, g: 0.9676805, b: 0.033018887, a: 1}
+    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
@@ -160,11 +160,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Inconsolata-VariableFont_wdth,wght SDF
+  m_Name: Inconsolata-VariableFont_wdth,wght SDF 1
   m_EditorClassIdentifier: 
-  hashCode: -2052470472
+  hashCode: -1757351127
   material: {fileID: -6408045810861762288}
-  materialHashCode: -1853803496
+  materialHashCode: -1678460567
   m_Version: 1.1.0
   m_SourceFontFileGUID: 9d487e9242fb34a758c987bf6662bd45
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 9d487e9242fb34a758c987bf6662bd45, type: 3}
