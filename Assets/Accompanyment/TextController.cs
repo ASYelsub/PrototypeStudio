@@ -62,11 +62,11 @@ public class TextController : MonoBehaviour
             AddMessage();
         }
 
-        for (int i = 0; i < textFloated.Count-1; i++)
+        for (int i = 0; i < textFloated.Count; i++)
         {
             if (textFloated[i] == true)
             {
-                Float(nearTextMeshes[i].gameObject.GetComponent<Transform>(), i);
+                Floater(nearTextMeshes[i].gameObject.GetComponent<Transform>(), i);
             }
         }
     }
@@ -77,7 +77,7 @@ public class TextController : MonoBehaviour
     List<float> compoundNums = new List<float>();
     public float frequency;
     public float amplitude;
-    void Float(Transform obj, int i)
+    void Floater(Transform obj, int i)
     {
         compoundNums[i] += Time.fixedDeltaTime;
         float num2 = compoundNums[i] + 3;
@@ -110,10 +110,12 @@ public class TextController : MonoBehaviour
         if (textsOnScreen > 3)
         {
             System.Random ran = new System.Random();
-            int i = ran.Next(0, 3);
+            int i = ran.Next(0, 4);
+            print(i);
             nearTextMeshes[i].gameObject.transform.localPosition = startPos[i];
             nearTextMeshes[i].text = textMeshObjects[i].text;
-            StartCoroutine(MoveThing(startPos[i], finalPos[i], nearTextMeshes[i].gameObject.GetComponent<Transform>(), screenMoveSpeed));
+            int f = ran.Next(0, 4);
+            StartCoroutine(MoveThing(startPos[i], finalPos[i], nearTextMeshes[i].gameObject.GetComponent<Transform>(), screenMoveSpeed,f));
             textFloated[i] = true;
         }
         textsOnScreen++;
@@ -130,10 +132,12 @@ public class TextController : MonoBehaviour
     void ToggleOnScreen()
     {
         screenIsMoving = true;
+        System.Random ran = new System.Random();
+        int i = ran.Next(0, 3);
         if(screenIsOn)
-            StartCoroutine(MoveThing(onScreenVec, offScreenVec,screenTransform,screenMoveSpeed));
+            StartCoroutine(MoveThing(onScreenVec, offScreenVec,screenTransform,screenMoveSpeed,i));
         else
-            StartCoroutine(MoveThing(offScreenVec, onScreenVec,screenTransform,screenMoveSpeed));
+            StartCoroutine(MoveThing(offScreenVec, onScreenVec,screenTransform,screenMoveSpeed,i));
         screenIsOn = !screenIsOn;
         screenIsMoving = false;
     }
@@ -143,13 +147,48 @@ public class TextController : MonoBehaviour
         end -= start;
         return end * (value * value * value + 1) + start;
     }
-    IEnumerator MoveThing(Vector3 startPos, Vector3 endPos, Transform objectToMove, float speed)
+    public static float EaseInOutCubic(float start, float end, float value)
+    {
+        value /= .5f;
+        end -= start;
+        if (value < 1) return end * 0.5f * value * value * value + start;
+        value -= 2;
+        return end * 0.5f * (value * value * value + 2) + start;
+    }
+    public static float EaseOutQuad(float start, float end, float value)
+    {
+        end -= start;
+        return -end * value * (value - 2) + start;
+    }
+    public static float EaseInQuad(float start, float end, float value)
+    {
+        end -= start;
+        return end * value * value + start;
+    }
+    IEnumerator MoveThing(Vector3 startPos, Vector3 endPos, Transform objectToMove, float speed, int easeID)
     {
         float t = 0;
         while (t < 1f)
         {
-            objectToMove.gameObject.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, EaseOutCubic(0,1,t));
-            objectToMove.localPosition = Vector3.Lerp(startPos, endPos, EaseOutCubic(0,1,t));
+            switch (easeID)
+            {case 0:
+                    objectToMove.gameObject.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, EaseInOutCubic(0,1,t));
+                    objectToMove.localPosition = Vector3.Lerp(startPos, endPos, EaseInOutCubic(0,1,t));
+                break;
+            case 1:
+                objectToMove.gameObject.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, EaseOutQuad(0,1,t));
+                objectToMove.localPosition = Vector3.Lerp(startPos, endPos, EaseOutQuad(0,1,t));
+                break;
+            case 2:
+                objectToMove.gameObject.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, EaseOutCubic(0,1,t));
+                objectToMove.localPosition = Vector3.Lerp(startPos, endPos, EaseOutCubic(0,1,t));
+                break;
+            case 3:
+                objectToMove.gameObject.GetComponent<TextMeshPro>().color = Color.Lerp(Color.red, Color.white, EaseInQuad(0,1,t));
+                objectToMove.localPosition = Vector3.Lerp(startPos, endPos, EaseInQuad(0,1,t));
+                break;
+            }
+            
             t += speed * Time.fixedDeltaTime;
             yield return null;
         }
