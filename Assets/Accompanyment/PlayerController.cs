@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
     public GameObject playerCamera;
    
     public float moveSpeed = 10.0f;
-
+    public Animator animator;
 public bool canMove = false;
     CharacterController characterController;
     float yVelocity;
     void Start()
     {
+        animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         playerCamera.GetComponent<CameraController>().Initialize(transform, this);
     }
@@ -26,7 +27,7 @@ public bool canMove = false;
 
         if (Input.GetKeyUp(KeyCode.F))
         {
-            canMove = !canMove;
+            SwitchMoveState();
         }
 
         
@@ -43,13 +44,22 @@ public bool canMove = false;
         }
 
     }
-    
+    public void SwitchMoveState(){
+        canMove = !canMove;
+        if(canMove)
+            animator.SetTrigger("ToSwim");
+        else if (!canMove)
+        {
+            animator.SetTrigger("ToSit");
+        }
+    }
     void Move(Vector2 input)
     {
         Vector3 moveVelocity = transform.right * input.x + transform.forward * input.y;
         yVelocity -= gravity * Time.deltaTime;
         moveVelocity += Vector3.up * yVelocity;
         characterController.Move(moveVelocity * moveSpeed * Time.deltaTime);
+       
     }
     
 
