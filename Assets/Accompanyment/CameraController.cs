@@ -23,6 +23,13 @@ public class CameraController : MonoBehaviour
         owningController = controller;
     }
 
+    public void ChangeLookSpan(float newAngle)
+    {
+        maxLookUp = newAngle;
+        minLookDown = -newAngle;
+        maxLookSide = newAngle;
+        minLookDown = -newAngle;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -69,7 +76,10 @@ public class CameraController : MonoBehaviour
             yaw = Mathf.Clamp(yaw, minLookSide, maxLookSide);
         }
         else
+        {
             yaw = 0;
+        }
+            
 
         pitch -= mouseY;
         pitch = Mathf.Clamp(pitch, minLookDown, maxLookUp);

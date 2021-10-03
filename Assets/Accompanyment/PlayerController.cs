@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 2.0f;
     public GameObject playerCamera;
 
-    private Vector3 movingCameraPos = new Vector3(0, 1.1f, 0.36f);
+    private Vector3 movingCameraPos = new Vector3(0, -0.114f, 0.004f);
 
     private Vector3 stillCameraPos;
     public float moveSpeed = 10.0f;
@@ -56,6 +56,8 @@ public bool canMove = false;
             StartCoroutine(HingeMove(rotateSpeed, hingeTransform));
             animator.SetTrigger("ToSwim");
             StartCoroutine(MoveObject(playerCamera.GetComponent<Transform>(),stillCameraPos,movingCameraPos,cameraMoveSpeed));
+            playerCamera.GetComponent<CameraController>().ChangeLookSpan(180);
+            
         }
         else if (!canMove)
         {

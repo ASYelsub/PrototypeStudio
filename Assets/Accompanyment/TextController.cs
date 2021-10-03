@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using TMPro;
+using UnityEngine.PlayerLoop;
 using Random = System.Random;
 
 public class TextController : MonoBehaviour
@@ -16,6 +17,7 @@ public class TextController : MonoBehaviour
     public Vector3 onScreenVec;
     public Vector3 offScreenVec;
 
+    public CameraController cc;
     private List<Vector3> finalPos = new List<Vector3>();
     private List<Vector3> startPos = new List<Vector3>();
     private Transform screenTransform;
@@ -51,6 +53,8 @@ public class TextController : MonoBehaviour
     private bool screenIsMoving = false;
     private List<Vector3> finalPosFront = new List<Vector3>();
     private List<Vector3> finalPosBack = new List<Vector3>();
+    [HideInInspector]
+    public float endGameTimer = 6000;
     private void Update()
     {
        /* if (Input.GetKeyUp(KeyCode.Tab) && !screenIsMoving)
@@ -72,6 +76,21 @@ public class TextController : MonoBehaviour
             if (textFloated[i] == true)
             {
                 Floater(nearTextMeshes[i].gameObject.GetComponent<Transform>(), i);
+            }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (cc.GetOwningController().canMove)
+        {
+            if (endGameTimer > 0)
+            {
+                endGameTimer -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                Application.LoadLevel(0);   
             }
         }
     }
