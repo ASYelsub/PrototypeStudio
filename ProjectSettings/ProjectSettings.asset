@@ -582,7 +582,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     1: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2
     7: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2
-    13: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2
+    13: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2;AMPLIFY_SHADER_EDITOR
     14: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2
     19: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2
     21: RealtimeCSG;RealtimeCSG_1;RealtimeCSG_1_5;RealtimeCSG_1_5_69;UNITY_POST_PROCESSING_STACK_V2

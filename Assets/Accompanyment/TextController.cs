@@ -24,6 +24,7 @@ public class TextController : MonoBehaviour
     AudioSource AS;
     public AudioSource musicSource;
     private List<bool> textFloated = new List<bool>();
+    bool textEmptied = false;
     private void Start()
     {
         
@@ -57,7 +58,11 @@ public class TextController : MonoBehaviour
            // ToggleOnScreen();
         }*/
 
-        if (Input.GetKeyUp(KeyCode.C) && !AS.isPlaying)
+       if (Input.GetKeyDown(KeyCode.R))
+       {
+           Application.LoadLevel(0);
+       }
+        if (Input.GetKeyUp(KeyCode.C) && !AS.isPlaying && !textEmptied)
         {
             AddMessage();
         }
@@ -119,6 +124,10 @@ public class TextController : MonoBehaviour
             textFloated[i] = true;
         }
         textsOnScreen++;
+        if (textsOnScreen == textMeshObjects.Count)
+        {
+            textEmptied = true;
+        }
       
     }
 

@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/To Endure/Zoombinis.unity
     guid: 0c96dfae4edaa490087657629381dc9b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Good Luck/Scenes/DrumBeat.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Accompanyment/Promised Man.unity
+    guid: a5876d79ac4e84e01b89bba96b614400
   m_configObjects: {}
