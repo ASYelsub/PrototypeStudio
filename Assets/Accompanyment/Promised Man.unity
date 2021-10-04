@@ -567,7 +567,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 16328
+    surfaceParameter: 17712
     meshQueryIndex: 0
     subMeshQueryIndex: 0
     geometryHashValue: 5609481275870563506
@@ -3220,7 +3220,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: 16320
+    surfaceParameter: 17730
     meshQueryIndex: 5
     subMeshQueryIndex: 0
     geometryHashValue: -7265543929190174544
@@ -5280,8 +5280,23 @@ MonoBehaviour:
   - Does it want to suck me of my juice?
   - Does it want to finalize entropy?
   - To steal from its enlightened being?
-  - -f- to fly
-  - -f- to fly
+  - I want to sleep with headphones on.
+  - But they crush into my skull...
+  - when I lie on my side.
+  - It seems EVERYTHING is a compromise.
+  - ...
+  - Feeling more composed, now.
+  - Do you hate my voice?
+  - The voice of my writing?
+  - My singsong slapstick?
+  - ...Well usually it's slapstick.
+  - Now it's just morose...
+  - ...and flat...
+  - ...not sexy at all.
+  - ...
+  - It's time for me to be free.
+  - Of this brain.
+  - Goodbye.
   - -f- to fly
   - -f- to fly
   onScreenVec: {x: -0.1454, y: 0, z: 0.186}
@@ -11596,7 +11611,7 @@ MonoBehaviour:
     meshQuery:
       layers: 16777223
       maskAndChannels: 234881031
-    surfaceParameter: -86224
+    surfaceParameter: 17720
     meshQueryIndex: 6
     subMeshQueryIndex: 0
     geometryHashValue: -2283215363929522867
@@ -14025,7 +14040,7 @@ MonoBehaviour:
     meshQuery:
       layers: 33554440
       maskAndChannels: 8
-    surfaceParameter: 16424
+    surfaceParameter: 17812
     meshQueryIndex: 1
     subMeshQueryIndex: 0
     geometryHashValue: 3519822455981098591

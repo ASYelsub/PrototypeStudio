@@ -66,7 +66,7 @@ public class TextController : MonoBehaviour
        {
            Application.LoadLevel(0);
        }
-        if (Input.GetKeyUp(KeyCode.C) && !AS.isPlaying && !textEmptied)
+        if (Input.GetKeyUp(KeyCode.C) && !textEmptied)
         {
             AddMessage();
         }
@@ -143,7 +143,7 @@ public class TextController : MonoBehaviour
             textFloated[i] = true;
         }
         textsOnScreen++;
-        if (textsOnScreen == textMeshObjects.Count)
+        if (textsOnScreen == texts.Count)
         {
             textEmptied = true;
         }
