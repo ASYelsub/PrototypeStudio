@@ -32,6 +32,25 @@ public class WorldBehavior : MonoBehaviour
 
     void Update()
     {
+        float mx = Input.GetAxis("Mouse X");
+        float my = Input.GetAxis("Mouse Y");
+        if (mx == 0 && my == 0)
+        {
+            moveSpeed = 0;
+        }
+        else
+        {
+            moveSpeed = mx;
+        }
+    }
+
+    void FixedUpdate(){
+
         
+
+        foreach (var s in stripeScripts)
+        {
+            s.UpdateMoveSpeed(moveSpeed);
+        }
     }
 }

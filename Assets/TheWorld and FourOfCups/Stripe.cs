@@ -30,14 +30,27 @@ public class Stripe : MonoBehaviour
         }
         myTransform.localPosition = currentPos;
     }
+    public void UpdateMoveSpeed(float ms){
+        moveSpeed = ms;
+    }
     void FixedUpdate()
     {
-        if(currentPos.x > bottomLeftPos.x){
+        /*if(currentPos.x > bottomLeftPos.x){
             currentPos.x -= moveSpeed * Time.deltaTime;
             currentPos.y -= moveSpeed * Time.deltaTime;
         }else{
             currentPos = topRightPos;
+        }*/
+
+        if(currentPos.x >= topRightPos.x)
+            currentPos = bottomLeftPos;
+        else if(currentPos.x <= bottomLeftPos.x)
+            currentPos = topRightPos;
+        else{
+            currentPos.x += moveSpeed * Time.deltaTime;
+            currentPos.y += moveSpeed * Time.deltaTime;
         }
+
         myTransform.localPosition = currentPos;
     }
 }
