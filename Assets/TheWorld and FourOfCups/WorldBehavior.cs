@@ -29,28 +29,32 @@ public class WorldBehavior : MonoBehaviour
             s.Init(moveSpeed,bottomLeftPos,topRightPos); 
         }
     }
-
+    bool mouseHeld = false;
+    float mouseBuffer = 0;
+    float mouseMove;
     void Update()
     {
-        float mx = Input.GetAxis("Mouse X");
-        float my = Input.GetAxis("Mouse Y");
-        if (mx == 0 && my == 0)
-        {
-            moveSpeed = 0;
+        if(Input.GetMouseButtonDown(0) && mouseBuffer == 0){
+            mouseHeld = true;
+        }else if (mouseHeld){
+            if (Input.GetMouseButtonUp(0)){
+                mouseHeld = false;
+                mouseMove = Input.GetAxis("Mouse X");
+                mouseBuffer = Mathf.Abs(mouseMove);
+            }
         }
-        else
-        {
-            moveSpeed = mx;
+        else if(mouseBuffer > 0){
+            moveSpeed = mouseMove;
+            mouseBuffer -= Time.deltaTime;
         }
+
+        UpdateMS(moveSpeed);
     }
 
-    void FixedUpdate(){
-
-        
-
+    void UpdateMS(float ms){
         foreach (var s in stripeScripts)
         {
-            s.UpdateMoveSpeed(moveSpeed);
+            s.UpdateMoveSpeed(ms);
         }
     }
 }
