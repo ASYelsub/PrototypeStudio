@@ -13,18 +13,22 @@ public class Stripe : MonoBehaviour
 
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
-    void Start()
-    {
+    float moveSpeed;
+    
+    public void Init(float ms,Vector3 blp, Vector3 trp){
         myTransform = GetComponent<Transform>();
         currentPos = myTransform.localPosition;
         initialPos = currentPos;
-    }
-    float moveSpeed;
-    
-    public void SendVariables(float ms,Vector3 blp, Vector3 trp){
         moveSpeed = ms;
         bottomLeftPos = blp;
         topRightPos = trp;
+        
+        if(currentPos.x < bottomLeftPos.x)
+        {
+            currentPos.x = topRightPos.x;
+            currentPos.y = topRightPos.y;
+        }
+        myTransform.localPosition = currentPos;
     }
     void FixedUpdate()
     {

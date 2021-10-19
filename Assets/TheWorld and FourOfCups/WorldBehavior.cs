@@ -15,7 +15,7 @@ public class WorldBehavior : MonoBehaviour
     Vector3 topRightPos;
 
     List<Stripe> stripeScripts = new List<Stripe>();
-    void Start()
+    void Awake()
     {
         topRightPos = topRight.GetComponent<Transform>().localPosition;
         bottomLeftPos = bottomLeft.GetComponent<Transform>().localPosition;
@@ -26,7 +26,7 @@ public class WorldBehavior : MonoBehaviour
         }
         foreach (var s in stripeScripts)
         {
-            s.SendVariables(moveSpeed,bottomLeftPos,topRightPos);   
+            s.Init(moveSpeed,bottomLeftPos,topRightPos); 
         }
     }
 
