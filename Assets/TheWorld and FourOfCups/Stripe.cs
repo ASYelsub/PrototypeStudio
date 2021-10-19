@@ -41,11 +41,10 @@ public class Stripe : MonoBehaviour
         if(currentPos.x < bottomLeftPos.x){
             currentPos = topRightPos-addVec;
         }else if(currentPos.x > topRightPos.x){
-            currentPos = bottomLeftPos +addVec;
+            currentPos = bottomLeftPos+addVec;
         }else{
-            currentPos.x += moveSpeed * Time.deltaTime;
-            currentPos.y += moveSpeed * Time.deltaTime;
-            
+            currentPos.x += moveSpeed*Time.deltaTime;
+            currentPos.y += moveSpeed*Time.deltaTime;
         }
 
        

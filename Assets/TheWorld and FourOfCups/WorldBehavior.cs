@@ -32,25 +32,40 @@ public class WorldBehavior : MonoBehaviour
     bool mouseHeld = false;
     float mouseBuffer = 0;
     float mouseMove;
+
+    public float decreaseFactor = 3;
+    public float moveSpeedAddition = 2;
+    bool moving = false;
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && mouseBuffer == 0){
+        if(Input.GetMouseButtonDown(0) && moving == false){
+            moveSpeed = 0;
             mouseHeld = true;
         }else if (mouseHeld){
             if (Input.GetMouseButtonUp(0)){
                 mouseHeld = false;
                 mouseMove = Input.GetAxis("Mouse X");
                 mouseBuffer = Mathf.Abs(mouseMove);
+                moving = true;
             }
         }
-        else if(mouseBuffer > 0){
-            moveSpeed = mouseMove;
-            mouseBuffer -= Time.deltaTime;
-        }
-
         UpdateMS(moveSpeed);
-    }
+        if(mouseBuffer > 0){
+            Debug.Log("hello");
+            moveSpeed = mouseMove;
+            if(mouseMove < 0){
+                mouseMove += Time.deltaTime * decreaseFactor;
+            }else{
+                mouseMove -= Time.deltaTime * decreaseFactor;  
+            }
 
+            
+            mouseBuffer -= Time.deltaTime*decreaseFactor;
+        }else{
+            moveSpeed = 0;
+            moving = false;
+        }
+    }
     void UpdateMS(float ms){
         foreach (var s in stripeScripts)
         {
