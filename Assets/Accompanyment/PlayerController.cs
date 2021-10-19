@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10.0f;
     public float cameraMoveSpeed;
     public Animator animator;
-public bool canMove = false;
+    public bool canMove = false;
     CharacterController characterController;
     float yVelocity;
     public Transform hingeTransform;
