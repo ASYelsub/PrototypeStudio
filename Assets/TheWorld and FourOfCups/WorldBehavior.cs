@@ -30,7 +30,7 @@ public class WorldBehavior : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         
     }
