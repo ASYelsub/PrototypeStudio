@@ -72,14 +72,16 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _ambientIntensity: 2.5
+    - _ambientIn: 0
+    - _ambientIntensity: 2.8
     - _diffuseSteps: 4
-    - _gloss: 1
-    - _noisePattern: 10
+    - _gloss: 0
+    - _noisePattern: 375
     - _specularSteps: 4
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ambientColor: {r: 0.24458313, g: 1, b: 0, a: 0}
-    - _surfaceColor: {r: 0.10196079, g: 0.5266518, b: 0.9019608, a: 1}
+    - _ambientColor: {r: 0.1215686, g: 0.81960785, b: 0.16043429, a: 0}
+    - _grainColor: {r: 1, g: 0.7464502, b: 0, a: 0}
+    - _surfaceColor: {r: 0, g: 0.83556986, b: 1, a: 1}
   m_BuildTextureStacks: []

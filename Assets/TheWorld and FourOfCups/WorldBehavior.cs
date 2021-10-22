@@ -10,9 +10,13 @@ public class WorldBehavior : MonoBehaviour
     public GameObject topRight;
     public GameObject bottomLeft;
     public List<GameObject> stripes = new List<GameObject>();
-    
+    public GameObject directionalLight;
+    public GameObject ring1;
+    public GameObject ring2;
+
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
+
 
     List<Stripe> stripeScripts = new List<Stripe>();
     void Awake()
@@ -32,6 +36,8 @@ public class WorldBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        directionalLight.transform.Rotate(new Vector3(0,.1f,0));
+        ring1.transform.Rotate(new Vector3(0,.5f,0));
+        ring2.transform.Rotate(new Vector3(0, .5f, 0));
     }
 }

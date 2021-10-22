@@ -14,7 +14,9 @@ public class Stripe : MonoBehaviour
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
     float moveSpeed;
-    
+    public AudioClip mySound;
+    public AudioSource AS;
+
     public void Init(float ms,Vector3 blp, Vector3 trp){
         myTransform = GetComponent<Transform>();
         currentPos = myTransform.localPosition;
@@ -39,5 +41,8 @@ public class Stripe : MonoBehaviour
             currentPos = topRightPos;
         }
         myTransform.localPosition = currentPos;
+    }
+    void OnMouseDown(){
+        AS.PlayOneShot(mySound);
     }
 }

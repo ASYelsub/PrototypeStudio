@@ -3,8 +3,9 @@ Shader "Custom/Noise Band"
      Properties 
     {
         _surfaceColor ("surface color", Color) = (0.4, 0.1, 0.9)
-        _ambientColor ("ambient color", Color) = (0,0,0,0)
-        _ambientIntensity("ambient intensity", Range(0,6)) = 0.1
+        _grainColor ("grain color", Color) = (0,0,0,0)
+        _ambientColor ("ambient color", Color) = (1,1,1,1)
+        _ambientIn("ambient intensity", Range(0,1)) = .1
         _gloss ("gloss", Range(0,1)) = 1
         _diffuseSteps ("diffuse steps", Int) = 4
         _specularSteps("specular steps", Int) = 4
@@ -28,8 +29,9 @@ Shader "Custom/Noise Band"
             #define MAX_SPECULAR_POWER 256
             
             float3 _surfaceColor;
+            float3 _grainColor;
             float3 _ambientColor;
-            float _ambientIntensity;
+            float _ambientIn;
             float _gloss;
             int _diffuseSteps;
             int _specularSteps;
@@ -71,11 +73,11 @@ Shader "Custom/Noise Band"
 
             float4 frag (Interpolators i) : SV_Target
             {   
-                float wn = white_noise(i.vertex/_noisePattern);
+                float wn = saturate(white_noise(i.vertex/_noisePattern));
                 //float wn = fractal_noise(i.vertex*_noisePattern); //this one interacts strangely with the falloff
-                
+                float3 surfaceColor = _surfaceColor;
                 float3 color = 0;
-
+                
                 float3 normal = normalize(i.normal);
                 
                 float3 lightDirection = _WorldSpaceLightPos0;
@@ -90,30 +92,29 @@ Shader "Custom/Noise Band"
                 specularFalloff = pow(specularFalloff, _gloss * MAX_SPECULAR_POWER + 0.0001) * _gloss;
                 
 
-                float3 ambientColor = _ambientColor;
-               float ambientAntiFalloff = saturate(1-diffuseFalloff);
+                float3 grainColor = _grainColor;
+                float grainFalloff = saturate(1-diffuseFalloff);
                 
+                float nwn = saturate(1-wn);
+
                 float dSteps = max(2,_diffuseSteps);
                 float sSteps = max(1,_specularSteps);
-                diffuseFalloff = floor(diffuseFalloff * dSteps) / dSteps;
-                ambientAntiFalloff = floor(ambientAntiFalloff * dSteps)/dSteps;
-                
+                diffuseFalloff = floor(diffuseFalloff * dSteps)/dSteps;
+                grainFalloff = floor(grainFalloff * dSteps)/dSteps;
 
+                float3 grain = grainFalloff*wn;
+                grain = saturate(grain) * grainColor*lightColor;
+
+                float3 diffuse = diffuseFalloff;
+                diffuse = saturate(diffuse) * surfaceColor * lightColor;
 
 
                 specularFalloff = floor(specularFalloff * sSteps) / sSteps;
-                float3 surfaceColor = _surfaceColor;
-                float3 diffuse = diffuseFalloff * surfaceColor * lightColor;
                 float3 specular = specularFalloff * lightColor;
-                float3 ambient = ambientAntiFalloff * surfaceColor * lightColor * ambientColor*_ambientIntensity*wn;
-
+                float3 ambient = _ambientColor*_ambientIn;
                 
-                ambient = saturate(ambient);
-                diffuse = saturate(diffuse);
-            
 
-
-                color = (diffuse + specular + ambient);
+                color = (diffuse+grain+specular+ambient);
 
                 return float4(color, 1.0);
             }
