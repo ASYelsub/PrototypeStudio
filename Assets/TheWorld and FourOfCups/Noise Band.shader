@@ -1,5 +1,6 @@
 Shader "Custom/Noise Band"
 {
+
      Properties 
     {
         _surfaceColor ("surface color", Color) = (0.4, 0.1, 0.9)

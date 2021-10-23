@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RectMat
-  m_Shader: {fileID: 4800000, guid: e6d5ba0d144b64e64a9b85e0a386abb2, type: 3}
+  m_Name: StencilObject
+  m_Shader: {fileID: 4800000, guid: 66bbad6365f3a4862b65c4d65c53bebc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,16 +72,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _ambientIn: 0
-    - _ambientIntensity: 2.8
-    - _diffuseSteps: 4
-    - _gloss: 0
-    - _noisePattern: 375
-    - _specularSteps: 4
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ambientColor: {r: 0.1215686, g: 0.81960785, b: 0.16043429, a: 0}
-    - _grainColor: {r: 1, g: 0.7464502, b: 0, a: 0}
-    - _surfaceColor: {r: 0, g: 0.83556986, b: 1, a: 1}
   m_BuildTextureStacks: []

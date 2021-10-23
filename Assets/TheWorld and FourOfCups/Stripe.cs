@@ -16,7 +16,15 @@ public class Stripe : MonoBehaviour
     float moveSpeed;
     public AudioClip mySound;
     public AudioSource AS;
+    Material onMat;
+    Material offMat;
 
+public void SendMat(Material on, Material off){
+    onMat = on;
+    offMat = off;
+}
+
+bool isOn = false;
     public void Init(float ms,Vector3 blp, Vector3 trp){
         myTransform = GetComponent<Transform>();
         currentPos = myTransform.localPosition;
@@ -44,5 +52,12 @@ public class Stripe : MonoBehaviour
     }
     void OnMouseDown(){
         AS.PlayOneShot(mySound);
+        if(!isOn){
+            gameObject.GetComponent<MeshRenderer>().material = onMat;
+        }else{
+            gameObject.GetComponent<MeshRenderer>().material = offMat;
+        }
+        isOn = !isOn;
+
     }
 }

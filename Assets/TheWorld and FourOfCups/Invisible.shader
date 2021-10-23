@@ -1,19 +1,24 @@
     Shader "Custom/Invisible" {
       SubShader {
+
+        Tags{"Queue"="Geometry-1"}
+        Stencil {
+          Ref 1
+          Comp Always
+          Pass Replace
+        }
+
         Pass {
           CGPROGRAM
           #pragma vertex vert
           #pragma fragment frag
        
 
-        struct appdata
-        {
-            float4 vertex : POSITION;
-        };
+        
 
         struct v2f {
             float4 pos : SV_POSITION;
-            float4 vertex : SV_POSITION;
+          
             float4 scrPos : TEXCOORD1;
         };
          
