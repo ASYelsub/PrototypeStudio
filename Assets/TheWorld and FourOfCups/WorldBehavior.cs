@@ -90,11 +90,11 @@ public class WorldBehavior : MonoBehaviour
 
 
     public TextMeshPro txt;
-    string story;
+    string story = "does it hurt to touch them?";
 
     public void TypeStart(string typeString)
     {
-        story = txt.text;
+        
         txt.text = "";
 
         // TODO: add optional delay when to start
