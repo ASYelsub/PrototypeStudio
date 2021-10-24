@@ -19,20 +19,21 @@ public class Stripe : MonoBehaviour
     Material onMat;
     Material offMat;
 
+    WorldBehavior myWorld;
 public void SendMat(Material on, Material off){
     onMat = on;
     offMat = off;
 }
 
 bool isOn = false;
-    public void Init(float ms,Vector3 blp, Vector3 trp){
+    public void Init(float ms,Vector3 blp, Vector3 trp,WorldBehavior w){
         myTransform = GetComponent<Transform>();
         currentPos = myTransform.localPosition;
         initialPos = currentPos;
         moveSpeed = ms;
         bottomLeftPos = blp;
         topRightPos = trp;
-        
+        myWorld = w;
         if(currentPos.x < bottomLeftPos.x)
         {
             currentPos.x = topRightPos.x;
@@ -54,6 +55,7 @@ bool isOn = false;
         AS.PlayOneShot(mySound);
         if(!isOn){
             gameObject.GetComponent<MeshRenderer>().material = onMat;
+            myWorld.touchInt++;
         }else{
             gameObject.GetComponent<MeshRenderer>().material = offMat;
         }

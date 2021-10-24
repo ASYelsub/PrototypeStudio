@@ -20,6 +20,8 @@ public class WorldBehavior : MonoBehaviour
     public Material hub6off;
     public Material hub6on;
 
+    public GameObject inside;
+    public GameObject outside;
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
 
@@ -42,13 +44,17 @@ public class WorldBehavior : MonoBehaviour
                 s.SendMat(hub6on,hub6off);
             }
             odd = !odd;
-            s.Init(moveSpeed,bottomLeftPos,topRightPos); 
+            s.Init(moveSpeed,bottomLeftPos,topRightPos,this); 
         }
     }
     float directionalLightTrack = 0f;
     bool directionalLightSwitched = false;
     bool inSwitch = false;
     float swTimer = 0f;
+    
+    [HideInInspector]
+    public int touchInt = 0;
+    bool touchIntTriggered = false;
     void FixedUpdate()
     {
         directionalLight.transform.Rotate(new Vector3(0,.1f,0));
@@ -80,19 +86,30 @@ public class WorldBehavior : MonoBehaviour
             ring3.transform.Rotate(new Vector3(0, .5f, 0));
         }
         
-    }
-
-    public void Update(){
-        if(Input.GetKeyDown(KeyCode.L)){
-            TypeStart("I love assholes");
+        if(!touchIntTriggered){
+            if(touchInt>=20){
+                touchIntTriggered=true;
+                TypeStart();
+            }
         }
+        inf = Mathf.Lerp(0,30,(Mathf.Sin(Time.deltaTime*Mathf.PI)));
+        ouf = Mathf.Lerp(0,-30,(Mathf.Sin(Time.deltaTime*Mathf.PI)));
+        Vector3 invec = new Vector3(0,0,inf);
+        Vector3 outvec = new Vector3(0,0,ouf);
+        inside.GetComponent<Transform>().Rotate(invec);
+        outside.GetComponent<Transform>().Rotate(outvec);
     }
 
 
     public TextMeshPro txt;
     string story = "does it hurt to touch them?";
+float inf = 0;
+    float ouf = 0;
 
-    public void TypeStart(string typeString)
+    float easeInOutCubic(float x){
+        return x< 0.5 ? 4 * x* x* x : 1 - Mathf.Pow(-2 * x + 2, 3) / 2;
+    }
+    public void TypeStart()
     {
         
         txt.text = "";
