@@ -26,7 +26,7 @@ public class WorldBehavior : MonoBehaviour
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
 
-    public GameObject ppv;
+    public PostProcessVolume ppv;
 
     
     List<Stripe> stripeScripts = new List<Stripe>();
@@ -101,9 +101,30 @@ public class WorldBehavior : MonoBehaviour
         Vector3 outvec = new Vector3(0,inf,ouf);
         inside.GetComponent<Transform>().Rotate(invec);
         outside.GetComponent<Transform>().Rotate(outvec);
+
+        if(textThere){
+            if(!ppvHappened)
+            {
+                ppvHappened = true;
+            }
+        }
+        if(ppvHappened){
+            if(!ppvFinished){
+                if(ppvTimer<1f){
+                    Debug.Log(ppv.weight);
+                    ppv.weight = Mathf.Lerp(0, 1, ppvTimer);
+                    ppvTimer+=.1f * Time.deltaTime;
+                }else{
+                    ppvTimer = 0;
+                    ppvFinished = true;
+                }
+            }
+        }
     }
 
-
+    bool ppvHappened = false;
+    bool ppvFinished = false;
+    float ppvTimer = 0f;
     public TextMeshPro txt;
     string story = "does it hurt to touch them?";
 float inf = 0;
@@ -121,6 +142,7 @@ float inf = 0;
         StartCoroutine(PlayText());
     }
 
+    bool textThere = false;
     IEnumerator PlayText()
     {
         foreach (char c in story)
@@ -128,22 +150,8 @@ float inf = 0;
             txt.text += c;
             yield return new WaitForSeconds(0.125f);
         }
-        StartCoroutine(PVAnim());
+        textThere = true;
         yield return null;
     }
 
-    IEnumerator PVAnim(){
-        float t = 0;
-        if(t < 1){
-            Debug.Log("hello");
-            ppv.GetComponent<PostProcessVolume>().GetComponent<ChromaticAberration>().intensity.Equals(Mathf.Lerp(0, 1, t));
-            yield return null;
-        }
-        t = 0;
-        if(t< 1){
-            ppv.GetComponent<PostProcessVolume>().GetComponent<LensDistortion>().scale.Equals(Mathf.Lerp(0, 1, t));
-            yield return null;
-        }
-        yield return null;
-    }
 }
