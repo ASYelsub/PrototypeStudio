@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 
 public class WorldBehavior : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class WorldBehavior : MonoBehaviour
     public GameObject outside;
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
+
+    public GameObject ppv;
 
     
     List<Stripe> stripeScripts = new List<Stripe>();
@@ -92,10 +95,10 @@ public class WorldBehavior : MonoBehaviour
                 TypeStart();
             }
         }
-        inf = Mathf.Lerp(0,30,(Mathf.Sin(Time.deltaTime*Mathf.PI)));
-        ouf = Mathf.Lerp(0,-30,(Mathf.Sin(Time.deltaTime*Mathf.PI)));
-        Vector3 invec = new Vector3(0,0,inf);
-        Vector3 outvec = new Vector3(0,0,ouf);
+        inf = Mathf.Lerp(0,1,(Mathf.Sin(Time.deltaTime*Mathf.PI)));
+        ouf = Mathf.Lerp(0,-1,(Mathf.Sin(Time.deltaTime*Mathf.PI)));
+        Vector3 invec = new Vector3(0,ouf,inf);
+        Vector3 outvec = new Vector3(0,inf,ouf);
         inside.GetComponent<Transform>().Rotate(invec);
         outside.GetComponent<Transform>().Rotate(outvec);
     }
@@ -118,7 +121,6 @@ float inf = 0;
         StartCoroutine(PlayText());
     }
 
-
     IEnumerator PlayText()
     {
         foreach (char c in story)
@@ -126,5 +128,22 @@ float inf = 0;
             txt.text += c;
             yield return new WaitForSeconds(0.125f);
         }
+        StartCoroutine(PVAnim());
+        yield return null;
+    }
+
+    IEnumerator PVAnim(){
+        float t = 0;
+        if(t < 1){
+            Debug.Log("hello");
+            ppv.GetComponent<PostProcessVolume>().GetComponent<ChromaticAberration>().intensity.Equals(Mathf.Lerp(0, 1, t));
+            yield return null;
+        }
+        t = 0;
+        if(t< 1){
+            ppv.GetComponent<PostProcessVolume>().GetComponent<LensDistortion>().scale.Equals(Mathf.Lerp(0, 1, t));
+            yield return null;
+        }
+        yield return null;
     }
 }
