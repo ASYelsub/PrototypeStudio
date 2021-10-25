@@ -27,6 +27,7 @@ public class WorldBehavior : MonoBehaviour
     Vector3 topRightPos;
 
     public PostProcessVolume ppv;
+    public PostProcessVolume ppv2;
 
     
     List<Stripe> stripeScripts = new List<Stripe>();
@@ -120,7 +121,29 @@ public class WorldBehavior : MonoBehaviour
                 }
             }
         }
+        if(ppvFinished){
+            Vector3 mousePos = Input.mousePosition;
+            
+            mousePos.x = Mathf.Abs(scaleBetween(mousePos.x, -1, 1, 0, 900));
+            mousePos.y = Mathf.Abs(scaleBetween(mousePos.y, -1, 1, 0, 900));
+
+            //x and y together so it goes from the center
+            float l = mousePos.y + mousePos.x; 
+            l = Mathf.Abs(scaleBetween(l, -1, 1, -2, 2));
+
+            if (ppvHappened)
+            {
+                ppv.weight = Mathf.Lerp(0, 1, mousePos.x);
+                ppv2.weight = Mathf.Lerp(0,1,mousePos.y);
+            }
+        }
     }
+
+    float scaleBetween(float unscaledNum, float minAllowed, float maxAllowed, float min, float max)
+    {
+        return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
+    }
+
 
     bool ppvHappened = false;
     bool ppvFinished = false;
