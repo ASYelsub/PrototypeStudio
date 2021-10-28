@@ -14,17 +14,26 @@ public class Stripe : MonoBehaviour
     Vector3 bottomLeftPos;
     Vector3 topRightPos;
     float moveSpeed;
-    Vector3 addVec;
-    
-    public void Init(float ms,Vector3 blp, Vector3 trp){
-        addVec = new Vector3(.72f,.72f,0);
+    public AudioClip mySound;
+    public AudioSource AS;
+    Material onMat;
+    Material offMat;
+
+    WorldBehavior myWorld;
+public void SendMat(Material on, Material off){
+    onMat = on;
+    offMat = off;
+}
+
+bool isOn = false;
+    public void Init(float ms,Vector3 blp, Vector3 trp,WorldBehavior w){
         myTransform = GetComponent<Transform>();
         currentPos = myTransform.localPosition;
         initialPos = currentPos;
         moveSpeed = ms;
         bottomLeftPos = blp;
         topRightPos = trp;
-        
+        myWorld = w;
         if(currentPos.x < bottomLeftPos.x)
         {
             currentPos.x = topRightPos.x;
@@ -32,22 +41,25 @@ public class Stripe : MonoBehaviour
         }
         myTransform.localPosition = currentPos;
     }
-    
-    public void UpdateMoveSpeed(float ms){
-        moveSpeed = ms;
-    }
     void FixedUpdate()
     {
-        if(currentPos.x < bottomLeftPos.x){
-            currentPos = topRightPos-addVec;
-        }else if(currentPos.x > topRightPos.x){
-            currentPos = bottomLeftPos+addVec;
+        if(currentPos.x > bottomLeftPos.x){
+            currentPos.x -= moveSpeed * Time.deltaTime;
+            currentPos.y -= moveSpeed * Time.deltaTime;
         }else{
-            currentPos.x += moveSpeed*Time.deltaTime;
-            currentPos.y += moveSpeed*Time.deltaTime;
+            currentPos = topRightPos;
         }
-
-       
         myTransform.localPosition = currentPos;
+    }
+    void OnMouseDown(){
+        AS.PlayOneShot(mySound);
+        if(!isOn){
+            gameObject.GetComponent<MeshRenderer>().material = onMat;
+            myWorld.touchInt++;
+        }else{
+            gameObject.GetComponent<MeshRenderer>().material = offMat;
+        }
+        isOn = !isOn;
+
     }
 }
