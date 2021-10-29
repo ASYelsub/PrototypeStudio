@@ -11,10 +11,11 @@ public class Nightmare_PlayerController : MonoBehaviour
     public GameObject playerCamera;
 
     public GameObject playerModel;
-    public float moveSpeed = 10.0f;
 
     CharacterController characterController;
     float yVelocity;
+    public float walkSpeed = 10.0f;
+    public float runSpeed = 20.0f;
 
     public Animator animator;
 
@@ -38,18 +39,30 @@ public class Nightmare_PlayerController : MonoBehaviour
             Jump();
         }
 
-        Move(inputDirection);
+        if(Input.GetKey(KeyCode.LeftShift))
+            Run(inputDirection);
+        else
+            Walk(inputDirection);
     }
 
 
-    void Move(Vector2 input)
+    void Walk(Vector2 input)
     {
         Vector3 moveVelocity = transform.right * input.x + transform.forward * input.y;
         yVelocity -= gravity * Time.deltaTime;
         moveVelocity += Vector3.up * yVelocity;
       //  SetAnimator(input.y);
 
-        characterController.Move(moveVelocity * moveSpeed * Time.deltaTime);
+        characterController.Move(moveVelocity * walkSpeed * Time.deltaTime);
+    }
+    void Run(Vector2 input)
+    {
+        Vector3 moveVelocity = transform.right * input.x + transform.forward * input.y;
+        yVelocity -= gravity * Time.deltaTime;
+        moveVelocity += Vector3.up * yVelocity;
+      //  SetAnimator(input.y);
+
+        characterController.Move(moveVelocity * runSpeed * Time.deltaTime);
     }
 
     

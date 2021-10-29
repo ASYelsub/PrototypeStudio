@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Paladin_diffuse
-  m_Shader: {fileID: 4800000, guid: dbe0ad0e880b6414cb3cfc58fe61aab8, type: 3}
-  m_ShaderKeywords: _NORMALMAP _SPECGLOSSMAP
+  m_Name: Mat_Fabric_Scifi2_Tint
+  m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: c276cf3477e8742088f81ddc3b0b815a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 68087d46f7a054c48978c7ce39a4996b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,23 +40,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9b9cafe0fe2f44b38b80f3598492d711, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a3a93b33d59e42c39edaef107a9c619, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1c0f06ab93d96423ba463971f3c152e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 47778d6b2f4854701a4b4bb88a5ba513, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: bce6846b7739c4255b689ff366f5df8c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: 38f7c929282364ba0a3d48dafad8181b, type: 3}
+        m_Texture: {fileID: 2800000, guid: d3407d64b1bb043bbbcb2f07c6bd2cb1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -65,7 +65,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -76,18 +76,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _crackSize: 1
-    - _displacement: 0.024
-    - _gloss: 0.109
-    - _opacity: 0.557
-    - _refractionIntensity: 0.176
-    - _scale: 3.4
-    - _waveSpeed: 0.2
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.0141509175, g: 0.72517043, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _crackColor: {r: 0, g: 0.4528301, b: 1, a: 1}
-    - _highColor: {r: 0.30973434, g: 0, b: 1, a: 1}
-    - _lowColor: {r: 0.1607843, g: 0.5865988, b: 0.6235294, a: 1}
   m_BuildTextureStacks: []
