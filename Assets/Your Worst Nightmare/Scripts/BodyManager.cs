@@ -12,13 +12,20 @@ public class BodyManager : MonoBehaviour
     public GameObject bodyStartPos;
     void Start(){
         bodyStartPos.GetComponent<MeshRenderer>().enabled = false;
-        GameObject newBody = Instantiate(bodyPrefab,Vector3.zero,Quaternion.identity,bodyHolder.transform);
-        newBody.transform.Rotate(new Vector3(-90, 0, 0));
-        newBody.transform.position += bodyStartPos.transform.position;
-        Body newBodyScript = newBody.GetComponent<Body>();
-        newBodyScript.Init(3,null,null);
-        bodyScripts.Add(newBodyScript);
-        bodyObjects.Add(newBody);
+        for (int i = 0; i < 20; i++)
+        {
+            float r = Random.Range(-4,4);
+            float r2 = Random.Range(0,5);
+            GameObject newBody = Instantiate(bodyPrefab, Vector3.zero, Quaternion.identity, bodyHolder.transform);
+            newBody.transform.Rotate(new Vector3(20*i*r2*r, -90, 90));
+            newBody.transform.position += bodyStartPos.transform.position + new Vector3(2f*r,2f*r2,0);
+            Body newBodyScript = newBody.GetComponent<Body>();
+            int r3 = Random.Range(1,4);
+            newBodyScript.Init(r3, null, null);
+            bodyScripts.Add(newBodyScript);
+            bodyObjects.Add(newBody);
+        }
+        
 
     }
 
