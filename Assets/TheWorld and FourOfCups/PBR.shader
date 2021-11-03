@@ -56,7 +56,7 @@ Shader "Custom/PBR"
             Ref 1
             Comp NotEqual
         }
-        Tags { "RenderType"="Opaque" "PerformanceChecks"="False" }
+        Tags { "Queue" = "opaque" "RenderType"="Opaque" "PerformanceChecks"="False" }
         LOD 300
 
 
@@ -65,7 +65,7 @@ Shader "Custom/PBR"
         Pass
         {
             Name "FORWARD"
-            Tags { "LightMode" = "ForwardBase" }
+            Tags { "Queue" = "opaque" "LightMode" = "ForwardBase" }
 
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_ZWrite]
@@ -131,7 +131,7 @@ Shader "Custom/PBR"
         //  Shadow rendering pass
         Pass {
             Name "ShadowCaster"
-            Tags { "LightMode" = "ShadowCaster" }
+            Tags {"Queue" = "opaque" "LightMode" = "ShadowCaster" }
 
             ZWrite On ZTest LEqual
 
@@ -158,7 +158,7 @@ Shader "Custom/PBR"
         Pass
         {
             Name "DEFERRED"
-            Tags { "LightMode" = "Deferred" }
+            Tags { "Queue" = "opaque" "LightMode" = "Deferred" }
 
             CGPROGRAM
             #pragma target 3.0
@@ -192,7 +192,7 @@ Shader "Custom/PBR"
         Pass
         {
             Name "META"
-            Tags { "LightMode"="Meta" }
+            Tags { "Queue" = "opaque" "LightMode"="Meta" }
 
             Cull Off
 
