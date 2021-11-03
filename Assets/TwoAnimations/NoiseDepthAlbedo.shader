@@ -74,7 +74,7 @@ Shader "Custom/Noise Depth Albedo"
             {
                 Interpolators o;
                
-               o.uv = TRANSFORM_TEX(v.uv, _albedo);
+                o.uv = TRANSFORM_TEX(v.uv, _albedo);
                 o.normal = UnityObjectToWorldNormal(v.normal);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
