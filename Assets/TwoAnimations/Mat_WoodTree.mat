@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Wood
+  m_Name: Mat_WoodTree
   m_Shader: {fileID: 4800000, guid: a0c47d837a0c245b5a6a4c89d2c2279e, type: 3}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP _SPECGLOSSMAP _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
