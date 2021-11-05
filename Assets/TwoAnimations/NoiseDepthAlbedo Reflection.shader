@@ -1,4 +1,4 @@
-Shader "Custom/Noise Depth Albedo"
+Shader "Custom/Noise Depth Albedo Reflection"
 {
      Properties 
     {
@@ -7,8 +7,8 @@ Shader "Custom/Noise Depth Albedo"
         _surfaceColor ("surface color", Color) = (0.4, 0.1, 0.9)
         _grainColor ("grain color", Color) = (0,0,0,0)
        
-        _gloss ("gloss", Range(0,1)) = 1
         _diffuseSteps ("diffuse steps", Int) = 4
+
         _noisePattern("noise pattern", Range(1,100)) = 10
         _normalIntensity ("normal intensity", Range(0, 1)) = 1
         _noiseIntensity("noise intensity",Range(1,20)) = 2
@@ -28,6 +28,7 @@ Shader "Custom/Noise Depth Albedo"
             // might be UnityLightingCommon.cginc for later versions of unity
             #include "Lighting.cginc"
 
+            #define MAX_SPECULAR_POWER 256
             
             float3 _surfaceColor;
             float3 _grainColor;
@@ -132,8 +133,6 @@ Shader "Custom/Noise Depth Albedo"
 
                 float diffuseFalloff = max(0, dot(normal, lightDirection)); //add wn to normal to blur the change
                 
-                
-                
 
                 float3 grainColor = _grainColor;
                 float grainFalloff = saturate(1-diffuseFalloff);
@@ -148,9 +147,7 @@ Shader "Custom/Noise Depth Albedo"
                 grain = saturate(grain) * _grainColor*lightColor;
 
                 float3 diffuse = diffuseFalloff;
-                diffuse = saturate(diffuse) * _surfaceColor * lightColor;
-
-
+                diffuse = saturate(diffuse) * _surfaceColor * lightColor*surfaceColor;
                 
 
                 color = (diffuse+grain);

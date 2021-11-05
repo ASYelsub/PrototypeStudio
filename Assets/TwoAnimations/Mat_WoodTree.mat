@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_WoodTree
-  m_Shader: {fileID: 4800000, guid: a0c47d837a0c245b5a6a4c89d2c2279e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 583ce3bcf9f9142459b7d916ef116ad3, type: 3}
   m_ShaderKeywords: _NORMALMAP _PARALLAXMAP _SPECGLOSSMAP _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -93,11 +93,12 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _ambientIn: 0
-    - _diffuseSteps: 6.47
+    - _diffuseSteps: 6.87
     - _displacementIntensity: 0
     - _fresnelPower: 1.43
-    - _gloss: 1
-    - _noisePattern: 89
+    - _gloss: 0
+    - _noiseIntensity: 2
+    - _noisePattern: 3
     - _normalIntensity: 0.737
     - _reflectivity: 1
     - _specularSteps: 4
@@ -106,6 +107,6 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ambientColor: {r: 1, g: 1, b: 1, a: 1}
     - _color: {r: 1, g: 1, b: 1, a: 0}
-    - _grainColor: {r: 0.4245283, g: 0.0740922, b: 0.07850016, a: 0}
+    - _grainColor: {r: 0.3773585, g: 0, b: 0, a: 0}
     - _surfaceColor: {r: 0.745283, g: 0.59593683, b: 0.19335175, a: 1}
   m_BuildTextureStacks: []
