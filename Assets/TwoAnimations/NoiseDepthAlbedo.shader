@@ -6,8 +6,6 @@ Shader "Custom/Noise Depth Albedo"
          [NoScaleOffset] _normalMap ("normal map", 2D) = "bump" {}
         _surfaceColor ("surface color", Color) = (0.4, 0.1, 0.9)
         _grainColor ("grain color", Color) = (0,0,0,0)
-       
-        _gloss ("gloss", Range(0,1)) = 1
         _diffuseSteps ("diffuse steps", Int) = 4
         _noisePattern("noise pattern", Range(1,100)) = 10
         _normalIntensity ("normal intensity", Range(0, 1)) = 1
@@ -135,20 +133,22 @@ Shader "Custom/Noise Depth Albedo"
                 
                 
 
-                float3 grainColor = _grainColor;
+                
                 float grainFalloff = saturate(1-diffuseFalloff);
                 
-                float nwn = saturate(1-wn);
+                
 
                 float dSteps = max(2,_diffuseSteps);
                 diffuseFalloff = floor(diffuseFalloff * dSteps)/dSteps;
                 grainFalloff = floor(grainFalloff * dSteps)/dSteps;
 
-                float3 grain = grainFalloff*wn;
-                grain = saturate(grain) * _grainColor*lightColor;
+                
+                float3 grainColor = _grainColor;
+                float3 grain = saturate((grainFalloff*wn)*grainColor);
 
-                float3 diffuse = diffuseFalloff;
-                diffuse = saturate(diffuse) * _surfaceColor * lightColor;
+                float3 diffuseColor = _surfaceColor*surfaceColor;
+                
+                float3 diffuse = saturate(diffuseFalloff*diffuseColor) + saturate((grainFalloff)*(1-wn)*diffuseColor);
 
 
                 
