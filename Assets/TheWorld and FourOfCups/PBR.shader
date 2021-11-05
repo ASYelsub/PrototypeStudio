@@ -131,7 +131,7 @@ Shader "Custom/PBR"
         //  Shadow rendering pass
         Pass {
             Name "ShadowCaster"
-            Tags {"Queue" = "opaque" "LightMode" = "ShadowCaster" }
+            Tags {"Queue" = "Opaque" "LightMode" = "ShadowCaster" }
 
             ZWrite On ZTest LEqual
 

@@ -88,7 +88,7 @@ Shader "Custom/Noise Depth Albedo"
             float4 frag (Interpolators i) : SV_Target
             {   
                 float2 uv = i.uv;
-                float wn = saturate(white_noise(i.vertex/_noisePattern));
+                float wn = saturate(white_noise(i.posWorld/_noisePattern));
                 //float wn = fractal_noise(i.vertex*_noisePattern); //this one interacts strangely with the falloff
                 float3 surfaceColor = lerp(0, tex2D(_albedo, uv).rgb, 1);
                 float3 color = 0;
