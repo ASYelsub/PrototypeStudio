@@ -9,7 +9,9 @@ Shader "Custom/Noise Depth Albedo Reflection"
         _diffuseSteps ("diffuse steps", Int) = 4
         _noisePattern("noise pattern", Range(1,100)) = 10
         _normalIntensity ("normal intensity", Range(0, 1)) = 1
-        _noiseIntensity("noise intensity",Range(1,20)) = 2
+        _gloss ("gloss", Range(0,1)) = 1
+        _reflectivity("reflectivity", Range(0,1)) = 1
+         [NoScaleOffset] _IBL ("IBL cube map", Cube) = "black" {}
     }
     SubShader
     {
@@ -27,6 +29,7 @@ Shader "Custom/Noise Depth Albedo Reflection"
             #include "Lighting.cginc"
 
             #define MAX_SPECULAR_POWER 256
+            #define SPECULAR_MIP_STEPS 4
             
             float3 _surfaceColor;
             float3 _grainColor;
@@ -35,7 +38,9 @@ Shader "Custom/Noise Depth Albedo Reflection"
             sampler2D _albedo; float4 _albedo_ST;
             sampler2D _normalMap;
             float _normalIntensity;
-            float _noiseIntensity;
+            float _gloss;
+            float _reflectivity;
+            samplerCUBE _IBL;
 
             float white_noise (float2 value) {
                 float uv = value;
@@ -98,8 +103,6 @@ Shader "Custom/Noise Depth Albedo Reflection"
                 o.bitangent = cross(o.normal, o.tangent) * v.tangent.w;
                 o.noise = v.noise;
                 
-                
-
                 return o;
             }
 
@@ -129,7 +132,7 @@ Shader "Custom/Noise Depth Albedo Reflection"
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld);
                 float3 halfDirection = normalize(viewDirection + lightDirection);
 
-                float diffuseFalloff = max(0, dot(normal, lightDirection)); //add wn to normal to blur the change
+                float diffuseFalloff = max(0, dot(normal, lightDirection));
                 float grainFalloff = saturate(1-diffuseFalloff);
                 
 
@@ -137,9 +140,13 @@ Shader "Custom/Noise Depth Albedo Reflection"
                 diffuseFalloff = floor(diffuseFalloff * dSteps)/dSteps;
                 grainFalloff = floor(grainFalloff * dSteps)/dSteps;
 
-                
-                float3 grainColor = _grainColor;
                 float3 diffuseColor = _surfaceColor*surfaceColor;
+
+                float3 viewReflection = reflect(-viewDirection,normal);
+                float mip = (1-_gloss) * SPECULAR_MIP_STEPS;
+                float3 indirectSpecular = texCUBElod(_IBL, float4(viewReflection, mip))*_reflectivity;
+                float3 grainColor = indirectSpecular;
+                
 
 
                 float3 grain = saturate((grainFalloff*wn)*grainColor);

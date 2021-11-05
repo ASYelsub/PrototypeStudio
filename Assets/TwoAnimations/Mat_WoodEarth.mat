@@ -98,7 +98,7 @@ Material:
     - _fresnelPower: 1.43
     - _gloss: 0
     - _noiseIntensity: 1
-    - _noisePattern: 12.8
+    - _noisePattern: 38.8
     - _normalIntensity: 0.526
     - _reflectivity: 1
     - _specularSteps: 4
@@ -107,6 +107,6 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ambientColor: {r: 1, g: 1, b: 1, a: 1}
     - _color: {r: 1, g: 1, b: 1, a: 0}
-    - _grainColor: {r: 0.6981132, g: 0.2874584, b: 0, a: 0}
-    - _surfaceColor: {r: 0.8773585, g: 0.11173906, b: 0.82890165, a: 1}
+    - _grainColor: {r: 0.254717, g: 0.1274833, b: 0, a: 0}
+    - _surfaceColor: {r: 1, g: 0.67569816, b: 0, a: 1}
   m_BuildTextureStacks: []
