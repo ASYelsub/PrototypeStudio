@@ -6,9 +6,7 @@ Shader "Custom/Noise Depth Albedo Reflection"
          [NoScaleOffset] _normalMap ("normal map", 2D) = "bump" {}
         _surfaceColor ("surface color", Color) = (0.4, 0.1, 0.9)
         _grainColor ("grain color", Color) = (0,0,0,0)
-       
         _diffuseSteps ("diffuse steps", Int) = 4
-
         _noisePattern("noise pattern", Range(1,100)) = 10
         _normalIntensity ("normal intensity", Range(0, 1)) = 1
         _noiseIntensity("noise intensity",Range(1,20)) = 2
@@ -132,23 +130,21 @@ Shader "Custom/Noise Depth Albedo Reflection"
                 float3 halfDirection = normalize(viewDirection + lightDirection);
 
                 float diffuseFalloff = max(0, dot(normal, lightDirection)); //add wn to normal to blur the change
-                
-
-                float3 grainColor = _grainColor;
                 float grainFalloff = saturate(1-diffuseFalloff);
                 
-                float nwn = saturate(1-wn);
 
                 float dSteps = max(2,_diffuseSteps);
                 diffuseFalloff = floor(diffuseFalloff * dSteps)/dSteps;
                 grainFalloff = floor(grainFalloff * dSteps)/dSteps;
 
-                float3 grain = grainFalloff*wn;
-                grain = saturate(grain) * _grainColor*lightColor;
-
-                float3 diffuse = diffuseFalloff;
-                diffuse = saturate(diffuse) * _surfaceColor * lightColor*surfaceColor;
                 
+                float3 grainColor = _grainColor;
+                float3 diffuseColor = _surfaceColor*surfaceColor;
+
+
+                float3 grain = saturate((grainFalloff*wn)*grainColor);
+                float3 diffuse = saturate(diffuseFalloff*diffuseColor) + saturate((grainFalloff)*(1-wn)*diffuseColor);
+
 
                 color = (diffuse+grain);
 

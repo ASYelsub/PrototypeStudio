@@ -129,29 +129,17 @@ Shader "Custom/Noise Depth Albedo"
                 float3 halfDirection = normalize(viewDirection + lightDirection);
 
                 float diffuseFalloff = max(0, dot(normal, lightDirection)); //add wn to normal to blur the change
-                
-                
-                
-
-                
-                float grainFalloff = saturate(1-diffuseFalloff);
-                
-                
+                float grainFalloff = saturate(1-diffuseFalloff);                
 
                 float dSteps = max(2,_diffuseSteps);
                 diffuseFalloff = floor(diffuseFalloff * dSteps)/dSteps;
                 grainFalloff = floor(grainFalloff * dSteps)/dSteps;
 
-                
                 float3 grainColor = _grainColor;
                 float3 grain = saturate((grainFalloff*wn)*grainColor);
 
                 float3 diffuseColor = _surfaceColor*surfaceColor;
-                
                 float3 diffuse = saturate(diffuseFalloff*diffuseColor) + saturate((grainFalloff)*(1-wn)*diffuseColor);
-
-
-                
 
                 color = (diffuse+grain);
 
