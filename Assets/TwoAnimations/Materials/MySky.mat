@@ -58,7 +58,7 @@ Material:
     m_Floats:
     - _Exposure: 1
     - _Rotation: 0
-    - _cloudSpeed: 0.069
+    - _cloudSpeed: 0.019
     - _noisePattern: 2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

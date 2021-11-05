@@ -1,14 +1,8 @@
-#if ENABLE_INPUT_SYSTEM && ENABLE_INPUT_SYSTEM_PACKAGE
-#define USE_INPUT_SYSTEM
-    using UnityEngine.InputSystem;
-    using UnityEngine.InputSystem.Controls;
-#endif
-
 using UnityEngine;
 
     public class TreeCameraController : MonoBehaviour
     {
-        class CameraState
+        class CameraState :MonoBehaviour
         {
             public float yaw;
             public float pitch;
@@ -17,6 +11,7 @@ using UnityEngine;
             public float y;
             public float z;
 
+        
             public void SetFromTransform(Transform t)
             {
                 pitch = t.eulerAngles.x;
@@ -73,7 +68,11 @@ using UnityEngine;
 
         [Tooltip("Whether or not to invert our Y axis for mouse input to rotation.")]
         public bool invertY = false;
-
+CharacterController characterController;
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
         void OnEnable()
         {
             m_TargetCameraState.SetFromTransform(transform);
@@ -113,8 +112,6 @@ using UnityEngine;
         void Update()
         {
             Vector3 translation = Vector3.zero;
-
-#if ENABLE_LEGACY_INPUT_MANAGER
 
             // Exit Sample  
             if (Input.GetKey(KeyCode.Escape))
@@ -161,9 +158,7 @@ using UnityEngine;
             boost += Input.mouseScrollDelta.y * 0.2f;
             translation *= Mathf.Pow(2.0f, boost);
 
-#elif USE_INPUT_SYSTEM 
-            // TODO: make the new input system work
-#endif
+
 
             m_TargetCameraState.Translate(translation);
 
