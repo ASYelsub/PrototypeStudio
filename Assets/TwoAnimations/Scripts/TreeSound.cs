@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class TreeSound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    AudioSource AS;
+    public ImageEffectBasic imageEffectBasic;
+    bool effectEnabled = false;
+    public AudioClip clip;
+    public AudioClip leaveClip;
+    public AudioSource musicSource;
+    void Start(){
+        AS = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnTriggerEnter(Collider other){
+        AS.PlayOneShot(clip);
+    }
+    void OnTriggerExit(Collider other){
+        AS.PlayOneShot(leaveClip);
+        effectEnabled = !effectEnabled;
+        imageEffectBasic.enabled = effectEnabled;
+        if(effectEnabled){
+            musicSource.pitch = 1.0f;
+        }else{
+            musicSource.pitch = .45f;
+        }
     }
 }

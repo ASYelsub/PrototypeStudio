@@ -7,9 +7,13 @@ public class CamCollider : MonoBehaviour
 {
     public TreeCameraController myCameraController;
     void OnTriggerEnter(Collider other){
-        myCameraController.RecieveCollision();
+        if(!other.CompareTag("Tree"))
+            myCameraController.RecieveCollision();
     }
     void OnTriggerExit(Collider other){
-        myCameraController.LeaveCollision();
+        if (!other.CompareTag("Tree"))
+            myCameraController.LeaveCollision();
+ 
+
     }
 }
