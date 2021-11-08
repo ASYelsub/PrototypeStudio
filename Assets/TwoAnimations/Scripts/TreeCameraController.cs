@@ -27,17 +27,17 @@ public class TreeCameraController : MonoBehaviour
         pitch -= mouseY;
         yaw += mouseX;
         transform.localRotation = Quaternion.Euler(pitch, yaw, 0.0f);
-        myCollider.transform.localRotation = Quaternion.Euler(pitch, yaw, 0.0f);
+        //myCollider.transform.localRotation = Quaternion.Euler(pitch, yaw, 0.0f);
 
 
         Vector2 inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        inputDirection.Normalize();
+       // inputDirection.Normalize();
         Move(inputDirection);
     }
     bool col = false;
     public void RecieveCollision(){
         col = true;
-        Debug.Log("here");
+        //Debug.Log("here");
     }
     public void LeaveCollision(){
         col = false;
@@ -50,18 +50,20 @@ public class TreeCameraController : MonoBehaviour
         
         if(input.x > 0){
             rl = Vector3.right;
+            myCollider.transform.Translate(rl);
         }
         else if(input.x < 0){
             rl = Vector3.left;
+            myCollider.transform.Translate(rl);
         }
         if(input.y > 0){
             fb = Vector3.forward;
+            myCollider.transform.Translate(fb);
         }
         else if(input.y < 0){
             fb = Vector3.back;
+            myCollider.transform.Translate(fb);
         }
-        myCollider.transform.Translate(fb);
-        myCollider.transform.Translate(rl);
         if(!col){
             transform.Translate((rl));
             transform.Translate((fb));

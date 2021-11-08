@@ -6,7 +6,7 @@ using UnityEngine;
 public class CamCollider : MonoBehaviour
 {
     public TreeCameraController myCameraController;
-    void OnTriggerStay(Collider other){
+    void OnTriggerEnter(Collider other){
         myCameraController.RecieveCollision();
     }
     void OnTriggerExit(Collider other){
