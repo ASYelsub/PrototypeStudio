@@ -669,6 +669,8 @@ MonoBehaviour:
   lb: {fileID: 3439468912072605574}
   rs: {fileID: 4771906774328704158}
   ls: {fileID: 1365400430964276906}
+  body: {fileID: 5028755931755031545}
+  entire: {fileID: 4744885302833967808}
 --- !u!1 &4771906774328704158
 GameObject:
   m_ObjectHideFlags: 0
