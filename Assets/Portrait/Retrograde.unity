@@ -807,7 +807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -166.45396}
+  m_AnchoredPosition: {x: 0, y: -166.45398}
   m_SizeDelta: {x: 0, y: -332.907}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701145554
@@ -954,10 +954,134 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyFrames:
-  - photo: {fileID: 21300000, guid: 8619ef41a95d94efd992e7b479188fb9, type: 3}
-    text: There, in the distance... radio radio radio.
+  - photo: {fileID: 21300000, guid: 54b9ccf9298d5442c8c9e801db7e69ca, type: 3}
+    text: We would go up state over summers. Up and over state, into the land of
+      green and fog.
+  - photo: {fileID: 21300000, guid: 153aae9202e064f939cc3f3be26335ef, type: 3}
+    text: Filled with green and spectacle, moss grew as our time ticked down to its
+      barest elemental form.
+  - photo: {fileID: 21300000, guid: 71012cfd090774247bbbc13d493487ba, type: 3}
+    text: Behind me she lulled, always, these days. We are visiting the tower.
+  - photo: {fileID: 21300000, guid: 6141b246579f14bf9b66c356bad46e6f, type: 3}
+    text: For moments she'd pop into frame, and for moments she'd fleet. But now
+      was a pop.
+  - photo: {fileID: 21300000, guid: d8763839901794092b0b9eac65127453, type: 3}
+    text: Foggy, reaching out into the distance, down the augmented slope crafted
+      for thrill.
   - photo: {fileID: 21300000, guid: f114edbeba2fc48a8b0e1db886a69c33, type: 3}
-    text: Foggy for ages.
+    text: What? Oh? What have we come across? A sittable? A sittable dependable?
+  - photo: {fileID: 21300000, guid: 1928620b74dbe4c66ae86018164b2781, type: 3}
+    text: Smile!
+  - photo: {fileID: 21300000, guid: e5a459f4e20a64885bc2a7fc4be7d0a3, type: 3}
+    text: Smile again! Smile this time with multiple facets!
+  - photo: {fileID: 21300000, guid: 6784a13b70bb94ad7bbe161dc47b9c7a, type: 3}
+    text: That's enough of that. Let's continue our meandering post haste.
+  - photo: {fileID: 21300000, guid: 8619ef41a95d94efd992e7b479188fb9, type: 3}
+    text: Oh? What could this be over here?
+  - photo: {fileID: 21300000, guid: e2f2cee19ea814ad2889172a8ce45a2f, type: 3}
+    text: Most likely THEIR base of operations. Where they call their duties from,
+      where their duties are decided and then brought to the tower to be broadcasted.
+  - photo: {fileID: 21300000, guid: 6952f80c552c04eb1ba672318d79d431, type: 3}
+    text: Vert. (Which came first, the scent or the candle?)
+  - photo: {fileID: 21300000, guid: 4b29790fc4e7c44b7a8ce931ea6cb312, type: 3}
+    text: We have finally arrived at the great mettalic object.
+  - photo: {fileID: 21300000, guid: 2caa5402312714271836865b5bfd7207, type: 3}
+    text: She is there, following. Putter putter up and up.
+  - photo: {fileID: 21300000, guid: 33b2aba4100e74fb7bce3a98507f45af, type: 3}
+    text: And up... oh hello...
+  - photo: {fileID: 21300000, guid: fd387aa6d7c9f4f34a501138d7a57f3d, type: 3}
+    text: And up... what a ceaseless smile!
+  - photo: {fileID: 21300000, guid: 4c8ab8f6a1fb04fa293aba441507e25d, type: 3}
+    text: We are truely ascending this metal!
+  - photo: {fileID: 21300000, guid: bf33dfe2659b54f938fbe3fe34231ee0, type: 3}
+    text: This metal... oh boy we are high up.
+  - photo: {fileID: 21300000, guid: 428d5a4aa66884c508d1e48f86b32ac3, type: 3}
+    text: Cresting. Ascent.
+  - photo: {fileID: 21300000, guid: e2bf20928f5184bc1b217e8ef0be9b78, type: 3}
+    text: Gah! It's too foggy to even begin trying to track their signals!
+  - photo: {fileID: 21300000, guid: 317f4936d68164c0eb76f5a67d9fae2a, type: 3}
+    text: How cheated! I wanted to leave at least with a nice landscape selfie!
+  - photo: {fileID: 21300000, guid: a534bda22573b4d8f9f11a78eb052b61, type: 3}
+    text: But wait... runes!
+  - photo: {fileID: 21300000, guid: 239780cb0457e4ba9bec52a81ff5a81a, type: 3}
+    text: Runes encoded their agenda! Success! Later I will analyze this record.
+  - photo: {fileID: 21300000, guid: 8f2799b7de5334fbcb67d98f0034fc7b, type: 3}
+    text: Now is time for our descent.
+  - photo: {fileID: 21300000, guid: 376b04c176c3447d1968b6054514a83f, type: 3}
+    text: 'She''s less perky on the way down. '
+  - photo: {fileID: 21300000, guid: 4964a9ae127b04948a2c469886f8daa9, type: 3}
+    text: Well, with the weather like this, how could you not be?
+  - photo: {fileID: 21300000, guid: 498d80f859eb144ccb7f134244332251, type: 3}
+    text: Oh boy.
+  - photo: {fileID: 21300000, guid: 49d73cdbdbf5f4ad2be2705d629bb720, type: 3}
+    text: Whew. Jeeze.
+  - photo: {fileID: 21300000, guid: 58509651a7b0e46a0a0dfb62462aba15, type: 3}
+    text: Okay. Got my footing.
+  - photo: {fileID: 21300000, guid: 3595c6c488ecd4849a6a0cf18b47fb25, type: 3}
+    text: I bet she's where I got my fear of heights from.
+  - photo: {fileID: 21300000, guid: 690a52459857d496f8186bf2d81df6be, type: 3}
+    text: And.....
+  - photo: {fileID: 21300000, guid: 84f7a46703074491a8bfc458b0a3359a, type: 3}
+    text: Hup!
+  - photo: {fileID: 21300000, guid: 6dabee07743b74f869f5a4ff32c94874, type: 3}
+    text: Well, at least I have this geometric glee in the surroundings. A great
+      distraction.
+  - photo: {fileID: 21300000, guid: 9fbbf09bfad0345b39902a315adde4c8, type: 3}
+    text: Absolute pillowed by organic, the perfect partner.
+  - photo: {fileID: 21300000, guid: 37547a9136862495981e52ff4981929b, type: 3}
+    text: Are my feet absolute or are they organic?
+  - photo: {fileID: 21300000, guid: 29e2462ec792145cea1aa2d1e82dde6c, type: 3}
+    text: It seems, mission accomplished, we're getting close to the bottom.
+  - photo: {fileID: 21300000, guid: 809462aae12734d00858066b182e96a1, type: 3}
+    text: What a slowpoke!
+  - photo: {fileID: 21300000, guid: 5c05de0721a35423b886d7d4bea0dff5, type: 3}
+    text: She was born to be a snail.
+  - photo: {fileID: 21300000, guid: 96d1a75276c764bb6935d7affcb55658, type: 3}
+    text: Born to burn.
+  - photo: {fileID: 21300000, guid: 28ec71626e0b94e878459ebf5921d24d, type: 3}
+    text: Where's her shell?
+  - photo: {fileID: 21300000, guid: 8e4d04baa41f34312bc9c31162e27b3d, type: 3}
+    text: ...
+  - photo: {fileID: 21300000, guid: db6af76e26a0649068358330fcaa7961, type: 3}
+    text: ...
+  - photo: {fileID: 21300000, guid: a36c1083ebe084188b252ae71e5f739e, type: 3}
+    text: dksajhgkjsadhgakljsdbvnskjbn
+  - photo: {fileID: 21300000, guid: de3768f879be44aeba7755afc15eea0e, type: 3}
+    text: jhg jsadnvbm,mczxajkhasdibcnxz
+  - photo: {fileID: 21300000, guid: 85ba97eff475d4e8c9d63ff4d8477486, type: 3}
+    text: uysgdvjhxcbvnmbsdja dma
+  - photo: {fileID: 21300000, guid: d0441f3b9bb774c348e313cc22085d98, type: 3}
+    text: saubhdsjbncm meniavnk s
+  - photo: {fileID: 21300000, guid: c96e28eebef264045bbe92a169b84a4c, type: 3}
+    text: We made it.
+  - photo: {fileID: 21300000, guid: c04627095392a489f870cdf083ac6395, type: 3}
+    text: Fini.
+  - photo: {fileID: 21300000, guid: 4d553d7616baa4f2fa0d7f38ea4f0d1b, type: 3}
+    text: And now we leave.
+  - photo: {fileID: 21300000, guid: 8b894951b7a1b4216b232456c55018d3, type: 3}
+    text: There are days harder than others.
+  - photo: {fileID: 21300000, guid: ee0328291b408463bb12e9c0fa7d0ed9, type: 3}
+    text: There are nights tougher too.
+  - photo: {fileID: 21300000, guid: 66a3d4910ff52424c9f54b9719523e92, type: 3}
+    text: No longer do I just bumble along, looking up at her.
+  - photo: {fileID: 21300000, guid: 5bf9cf307329e4f538f360fbf24b9c12, type: 3}
+    text: My wings have stretched and their musk has released uncontrollably.
+  - photo: {fileID: 21300000, guid: b05ecdbf9f26d425eae57f3b6f510d49, type: 3}
+    text: It's more of a disjointed co-pilot situation now.
+  - photo: {fileID: 21300000, guid: 10e5b4c936311423b8551ad540f6ca1f, type: 3}
+    text: Anyway...
+  - photo: {fileID: 21300000, guid: 10e5b4c936311423b8551ad540f6ca1f, type: 3}
+    text: We are nearing the end.
+  - photo: {fileID: 21300000, guid: f711c755b58db424da19600df59d60d9, type: 3}
+    text: Let's just watch her leave.
+  - photo: {fileID: 21300000, guid: a21e559fde1fa4f9fb080381a695b710, type: 3}
+    text: 
+  - photo: {fileID: 21300000, guid: c58d13d025e194d3ba8bb8eb513243f3, type: 3}
+    text: 
+  - photo: {fileID: 21300000, guid: c0ccc2530c71c4c46baf415add47b997, type: 3}
+    text: 
+  - photo: {fileID: 21300000, guid: c78e57c0c73cf4d56aafce43149e763d, type: 3}
+    text: Goodbye. I love you.
   textBox: {fileID: 1451177242}
   spriteImage: {fileID: 1075953327}
   currentFrame: 0
